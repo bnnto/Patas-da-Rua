@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'app_initial',
     'cadlog',
     'user',
+    'ong',
 ]
 
 MIDDLEWARE = [
