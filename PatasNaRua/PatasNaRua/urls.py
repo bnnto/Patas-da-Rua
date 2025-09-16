@@ -8,4 +8,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('app_initial.urls')),
     path('', include('cadlog.urls')),
+    path('', include('ong.urls')),
 ]

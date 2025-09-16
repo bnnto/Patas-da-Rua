@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app_initial',
     'cadlog',
+    'user',
+    'ong',
 ]
 
 MIDDLEWARE = [

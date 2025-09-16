@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Patas Na Rua</title>
+        <link rel="stylesheet" href="{% static 'cadpet/css/style.css' %}">
+    </head>
+
+    <body>
+        <header>
+            <div class="logo">
+                <img src="{% static 'cadpet/images/logo.png' %}" alt="logo">
+            </div>
+            <div class="voltar">
+                <img src="{% static 'cadpet/images/voltar.png' %}" alt="voltar">
+            </div>
+        </header>
+        <nav>
+            <ul class="menu">
+                <li><a href="#">Rastrear</a></li>
+                <li><a href="#">Cadastrar</a></li>
+                <li><a href="#">Histórico</a></li>
+                <li><a href="#">Solicitações</a></li>
+                <li><a href="#">Pets</a></li>
+            </ul>
+        </nav>
+        
+        <main>
+            <section>
+                <h2>Cadastro de Pet</h2>
+                <form>
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome">
+                    <label for="raca">Raça:</label>
+                    <input type="text" id="raca">
+                    <label for="peso">Peso:</label>
+                    <input type="text" id="peso">
+                    <label for="idade">Idade:</label>
+                    <input type="number" id="idade" step="any">
+                    <label for="sexo">Sexo:</label>
+                    <input type="radio" id="masc" name="sexo" value="masculino">
+                    <label for="masc">Masculino</label>
+                    <input type="radio" id="fem" name="sexo" value="feminino">
+                    <label for="fem">Feminino</label>
+                    <label for="observacoes">Observações:</label>
+                    <input type="text" id="observacoes">
+                </form>
+            </section>
+        </main>
+        <footer>
+            <p>© 2025 Patas Na Rua</p>
+        </footer>
+    </body>
+</html>
