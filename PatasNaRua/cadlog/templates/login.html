@@ -11,15 +11,25 @@
   <body>
     <div class="quadrado">
       <h2>Login</h2>
-      <form>
+
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}
+
+      <form method="POST">
+        {% csrf_token %}
         <div class="inserir-dado">
-          <input type="text" placeholder="Email" />
+          <input type="email" name="email" placeholder="E-mail" required />
         </div>
         <div class="inserir-dado">
-          <input type="password" placeholder="Senha" />
+          <input type="password" name="password" placeholder="Senha" required />
         </div>
         <div class="botao-direita">
-          <button class="btn-login">Entrar</button>
+          <button type="submit" class="btn-login">Entrar</button>
         </div>
       </form>
     </div>
