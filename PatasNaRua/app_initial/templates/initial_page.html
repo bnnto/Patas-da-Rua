@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <title>Patas Na Rua</title>
 </head>
 <body>
@@ -16,7 +17,7 @@
             <ul>
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#sobre">Sobre</a></li>
-                <li><button>Login</button></li>
+                <li><a class="login" href="{% url 'login' %}">Login</a></li>
             </ul>
         </nav>
     </header>
@@ -24,24 +25,43 @@
         <section class="inicio" id="inicio">
             <div class="inicio-text">
                 <h1>Olá, seja bem vindo ao <span>Patas na Rua!</span></h1>
+                <p>Estamos aqui para ajudar animais em situação de abandono a encontrarem um lar.</p>
             </div>
             <div class="inicio-image">
-                <img src="#" alt="cachorro e gato">
+                <img src="{% static 'images/dog&cat.png' %}" alt="cachorro e gato">
             </div>
         </section>
         <section class="valores" id="valores">
-            <div class="valores-carroussel">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="{% static 'images/image.png' %}" alt=""></div>
+                    <div class="swiper-slide"><img src="{% static 'images/ong.png' %}" alt=""></div>
+                    <div class="swiper-slide"><img src="{% static 'images/image.png' %}" alt=""></div>
+                    <div class="swiper-slide"><img src="{% static 'images/ong.png' %}" alt=""></div>
+                    <div class="swiper-slide"><img src="{% static 'images/image.png' %}" alt=""></div>
+                </div>
+                <div class="swiper-pagination"></div>
 
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+
+                <div class="swiper-scrollbar"></div>
             </div>
+
             <div class="valores-description">
-                <div class="valores-adocao">
-                    <img src="#" alt="adocao">
+                <div class="valores-card">
+                    <img src="{% static 'images/adotar.png' %}" alt="adocao">
                     <p><span>Adotar</span> é salvar duas vidas: a do animal que ganha um lar e 
                         a de outro que podemos resgatar no lugar dele. Dê ao seu novo 
                         melhor amigo a chance de ser feliz ao seu lado!</p>
                 </div>
-                <div class="valores-apadrinhamento">
-                    <img src="#" alt="apadrinhamento">
+                <div class="valores-card">
+                    <img src="{% static 'images/apadrinhar.png' %}" alt="apadrinhamento">
+                    <p>Nem todos podem adotar, mas todos podem ajudar!<span> Apadrinhe</span> um cão 
+                        ou gato e contribua mensalmente para que ele tenha alimentação, cuidados veterinários e muito carinho.</p>
+                </div>
+                <div class="valores-card">
+                    <img src="{% static 'images/apadrinhar.png' %}" alt="apadrinhamento">
                     <p>Nem todos podem adotar, mas todos podem ajudar!<span> Apadrinhe</span> um cão 
                         ou gato e contribua mensalmente para que ele tenha alimentação, cuidados veterinários e muito carinho.</p>
                 </div>
@@ -49,17 +69,52 @@
         </section>
         <section class="sobre" id="sobre">
             <div class="sobre-content">
-                <h2>Quem Somos</h2>
-                <p>Somos uma ONG apaixonada por transformar vidas! Resgatamos cães e gatos em situação de abandono, oferecendo amor, cuidados e um
+                <div class="sobre-text">
+                     <h2>Quem Somos</h2>
+                     <p>Somos uma ONG apaixonada por transformar vidas! Resgatamos cães e gatos em situação de abandono, oferecendo amor, cuidados e um
                      lar temporário até encontrarem famílias que os acolham para sempre.</p>
-                     <img src="#" alt="ong">
+                </div>
+                <img src="{% static 'images/ong.png' %}" alt="ong">
             </div>
         </section>
     </main>
     <footer>
         <div class="footer-content">
-            <p>&copy; 2024 Patas Na Rua. Todos os direitos reservados.</p>
+            <img src="{% static 'images/logo.png' %}" alt="logo">
+            <p>&copy; 2025 Patas Na Rua. Todos os direitos reservados.</p>
         </div>
     </footer>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        // Inicialize o Swiper
+        const mySwiper = new Swiper('.swiper-container', {
+        // Optional parameters
+        direction: 'horizontal',
+        loop: true,
+
+        // Adicione a configuração de autoplay
+        autoplay: {
+            delay: 3500, // Tempo em milissegundos (5000ms = 5 segundos)
+            disableOnInteraction: false, // O carrossel não para quando o usuário interage
+        },
+
+        // If we need pagination
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+
+        // And if we need scrollbar
+        scrollbar: {
+            el: '.swiper-scrollbar',
+        },
+    });
+    </script>
 </body>
 </html>
