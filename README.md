@@ -38,7 +38,7 @@ Proteger e melhorar a qualidade de vida de animais de rua, oferecendo uma soluç
 - **Comunidade engajada** no apadrinhamento e adoção.
 - **Redução do abandono** e melhoria na qualidade de vida animal.
 
-# Trello
+# 📊 Trello
 
 ### Quadro
 
@@ -49,3 +49,7 @@ Proteger e melhorar a qualidade de vida de animais de rua, oferecendo uma soluç
 ![backlog1](./assets/Backlog1.png)
 ![Backlog2](./assets/Backlog23.png)
 ![Backlog3](./assets/Backlog32.png)
+
+# ❌ Issue/Bug Tracker
+
+![issue-bug](./assets/IssueBug-Tracker.png)
