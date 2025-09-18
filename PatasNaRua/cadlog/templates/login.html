@@ -12,13 +12,9 @@
     <div class="quadrado">
       <h2>Login</h2>
 
-      {% if messages %}
-        {% for message in messages %}
-          <div class="alert alert-{{ message.tags }}">
-            {{ message }}
-          </div>
-        {% endfor %}
-      {% endif %}
+      {% if messages %} {% for message in messages %}
+      <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+      {% endfor %} {% endif %}
 
       <form method="POST">
         {% csrf_token %}
@@ -28,8 +24,15 @@
         <div class="inserir-dado">
           <input type="password" name="password" placeholder="Senha" required />
         </div>
-        <div class="botao-direita">
-          <button type="submit" class="btn-login">Entrar</button>
+        <div class="lembrar-esqueci">
+          <label><input type="checkbox" />Lembrar-me</label>
+          <a href="#">Esqueci minha senha</a>
+        </div>
+
+        <button type="submit" class="btn-login">Entrar</button>
+
+        <div class="extras">
+          <a1>Não tem cadastro?</a1><a href="#">Cadastre-se!</a><br />
         </div>
       </form>
     </div>
