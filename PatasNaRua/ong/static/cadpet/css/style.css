@@ -11,20 +11,13 @@ header {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    height: 120px; /* Adicione esta linha */
+    height: 120px;
 }
 
 .logo img{
     width: 300px;
-    margin: 150px;
+    margin: 40px;
     height: auto;
-}
-
-.voltar {
-    position: absolute;
-    top: 55px;
-    left: 55px;
-    width: 55px;
 }
 img {
     width: 30px;
@@ -32,7 +25,8 @@ img {
 
 nav {
     background-color: #00CFD4;
-    padding: 10px;
+    padding-left: 40px;
+    padding-bottom: 10px;
 }
 
 .menu {
@@ -43,7 +37,89 @@ nav {
 }
 
 .menu li a {
-    color: white;
+    color: #9269F3;
     text-decoration: none;
     font-weight: bold;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    margin: 0;
+}
+
+.quadrado {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #9269F3;
+    color: white;
+    width: 1480px;
+    height: 700px;
+    padding: 10px 50px 50px 50px;
+    border-radius: 20px;
+    margin: 20px;
+}
+
+.titulo {
+    display: flex;
+    width: 100%;
+    height: 100px;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.conteudo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 750px;
+}    
+
+.esquerda {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+}
+
+.direita {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+}
+
+.inserir-dado {
+  position: relative;
+  margin-bottom: 30px;
+  width: 650px;
+}
+
+.inserir-dado input {
+  width: 650px;
+  padding: 10px 22px;
+  background-color: white;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  font-size: 16px;
+  color: black;
+  transition: all 0.3s ease;
+}
+
+
+.input-sexo {
+    margin-bottom: 25px;
+}
+
+label[for="masc"] {
+    margin-right: 20px;
 }
