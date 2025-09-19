@@ -71,3 +71,45 @@ Link para demonstração das funcionalidades do projeto: [Screencast](https://dr
 # ❌ Issue/Bug Tracker
 
 ![issue-bug](./assets/IssueBug-Tracker.png)
+
+# 🎞️ Storyboards
+
+- **Tela da ONG (Cadastrar Pet)**
+1. ONG acessa a tela de Cadastrar Pet → aparece formulário.
+2. ONG preenche os dados do pet → nome, idade, raça etc.
+3. ONG clica em Concluir → sistema valida as informações.
+4. Sistema salva no banco de dados → exibe mensagem de confirmação.
+
+- **Tela da ONG (Exibir Informações do Pet)**
+
+1. ONG entra na tela de Pets → opções de pesquisa ou lista de pets.
+2. ONG pesquisa um pet → sistema verifica.
+3. Pet não encontrado → sistema mostra mensagem de erro.
+4. Pet encontrado → sistema exibe informações completas do pet.
+
+- **Tela do Usuário (Exibir Informações do Pet)**
+
+1. Usuário acessa a tela de Pets → vê a lista de animais.
+2. Usuário pesquisa um pet → sistema verifica.
+3. Pet não encontrado → sistema mostra mensagem de erro.
+4. Pet encontrado → sistema exibe informações completas do pet.
+5. Usuário também pode clicar em um pet já listado → sistema abre informações.
+
+- **Tela de Login**
+
+1. Tela de login → aparece o formulário de login.
+2. Pessoa insere dados → pessoa digita seu e-mail e senha.
+3. Banco de dados valida as credenciais → o sistema verifica os dados, se sim segue para tela correspondente, se não aparece erro.
+
+- **Tela de Cadastro**
+
+1. Tela inicial → pessoa escolhe entre Usuário e ONG.
+2. Se Usuário → formulário de cadastro é exibido.
+3. Usuário preenche dados → sistema armazena e criptografa no banco de dados.
+4. Cadastro bem-sucedido → usuário é direcionado para a tela inicial do site.
+5. Erro no cadastro → sistema exibe mensagem de erro.
+6. Se ONG → formulário de cadastro da ONG é exibido.
+7. Funcionário preenche formulário principal → completa mini formulário com informações gerais da ONG.
+8. Sistema armazena e criptografa dados → solicitação de cadastro é enviada para análise.
+9. Solicitação aprovada → ONG é direcionada para a tela inicial do site.
+10. Solicitação reprovada → sistema envia e-mail de reprovação para o responsável da ONG.
