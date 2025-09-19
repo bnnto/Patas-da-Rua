@@ -40,6 +40,8 @@ Proteger e melhorar a qualidade de vida de animais de rua, oferecendo uma soluç
 
 # 📊 Trello
 
+Link para visualizar o trello: [Trello](https://trello.com/b/Zv0x8ntW/patas-na-rua)
+
 ### Quadro
 
 ![quadro](./assets/QuadroTrello.png)
@@ -49,6 +51,14 @@ Proteger e melhorar a qualidade de vida de animais de rua, oferecendo uma soluç
 ![backlog1](./assets/Backlog1.png)
 ![Backlog2](./assets/Backlog23.png)
 ![Backlog3](./assets/Backlog32.png)
+
+# 🎨 Figma
+
+Link para visualizar o figma do projeto: [Patas na Rua](https://www.figma.com/design/v7vz9nH8jlqldcBGe8qKIp/PatasNaRuaVisu?node-id=0-1&t=kICA12GHyYwpdJoW-1)
+
+# 🎥 Screencast
+
+Link para demonstração das funcionalidades do projeto: [Screencast](https://drive.google.com/drive/folders/1X9eKB9kNdjSjooO-u2W0E6FK_3Dyimkk?usp=drive_link)
 
 # 📈 Diagramas de Atividades
 
