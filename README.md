@@ -19,7 +19,7 @@ Muitas ONGs enfrentam um desafio crítico: a **falta de espaço** para acolher t
 Com essa tecnologia, as ONGs podem:
 - **Gerenciar cuidados** aos animais não abrigados.
 - Facilitar o **apadrinhamento**, permitindo que pessoas se responsabilizem financeiramente, mesmo à distância.
-- **Apoiar adoções**, conectando animais rastreados a possíveis adotantes.
+- **Apoiar adoções**, conectando animais rastreados a possíveis adotantes..
 
 ## 🎯 Objetivo
 Proteger e melhorar a qualidade de vida de animais de rua, oferecendo uma solução tecnológica que:
