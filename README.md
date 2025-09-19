@@ -2,7 +2,7 @@
 
 ![Status](https://img.shields.io/badge/status-EmDesenvolvimento-yellow)
 
-**Equipe:**
+**👥 Equipe:**
 - [Anna Beatriz dos Santos Silva](https://github.com/Anninhaxs) (Front-End)
 - [Bento Guilherme Gomes Oliveira](https://github.com/bnnto) (Back-End)
 - [Bruno Ferreira de Andrade Lyra](https://github.com/BrunoFerreiraLyra) (Back-End)
@@ -49,6 +49,14 @@ Proteger e melhorar a qualidade de vida de animais de rua, oferecendo uma soluç
 ![backlog1](./assets/Backlog1.png)
 ![Backlog2](./assets/Backlog23.png)
 ![Backlog3](./assets/Backlog32.png)
+
+# 📈 Diagramas de Atividades
+
+![telainicial](./assets/DiagramaPatasNaRua.png)
+![login](./assets/loginATV.png)
+![cadastro](./assets/cadastroATV.png)
+![telaong](./assets/telaONGATV.png)
+![telauser](./assets/telauser.png)
 
 # ❌ Issue/Bug Tracker
 
