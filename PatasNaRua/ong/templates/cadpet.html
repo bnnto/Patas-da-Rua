@@ -28,11 +28,14 @@
             <section>
                 <div class="quadrado">
                     <div class="titulo">
-                        <h2>Cadastro de Pets</h2>
+                        <h1>Cadastro de Pets</h1>
                     </div>
                     <div class="conteudo">
                         <div class="esquerda">
-                            <img src="/images/pets/{{ imgpet.id }}" alt="Imagem do pet" title="Imagem do Pet">
+                            <div class="visualizador">
+                                <input type="file" id="seletorDeImagem" accept="image/*">
+                                <img id="imagemVisualizada" src="#">
+                            </div>
                         </div>
                         <div class="direita">
                             <form action="/enviar-dados" method="post" class="dados">
@@ -58,11 +61,15 @@
                                 <label for="fem">Fêmea</label><br>
                                 <div class="inserir-dado">
                                     <label for="observacoes">Observações:</label>
-                                    <input type="text" id="observacoes">
+                                    <textarea id="observacoes" name="observacoes"></textarea>
                                 </div>
                             <div class="botoes">
-                                <button type="submit">Concluir</button>
-                                <button type="button">Cancelar</button> 
+                                <div class="botao-concluir">
+                                    <button type="submit">Concluir</button>
+                                </div>
+                                <div class="botao-cancelar">
+                                    <button type="button">Cancelar</button> 
+                                </div>
                             </div>
                         </form>
                         </div>

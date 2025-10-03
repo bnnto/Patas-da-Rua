@@ -71,6 +71,7 @@ main {
     text-align: center;
     padding-bottom: 10px;
     box-sizing: border-box;
+    margin-top: 10px;
 }
 
 .conteudo {
@@ -98,23 +99,28 @@ main {
 }
 
 .inserir-dado {
-  position: relative;
-  margin-bottom: 30px;
-  width: 650px;
+    position: relative;
+    margin-bottom: 30px;
+    width: 650px;
 }
 
-.inserir-dado input {
-  width: 650px;
-  padding: 10px 22px;
-  background-color: white;
-  border: none;
-  outline: none;
-  border-radius: 5px;
-  font-size: 16px;
-  color: black;
-  transition: all 0.3s ease;
+.inserir-dado input,
+.inserir-dado textarea {
+    width: 650px;
+    padding: 10px 22px;
+    background-color: white;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    font-size: 16px;
+    color: black;
+    transition: all 0.3s ease;
 }
 
+.inserir-dado textarea {
+    height: 110px;
+    resize: none;
+}
 
 .input-sexo {
     margin-bottom: 25px;
@@ -122,4 +128,61 @@ main {
 
 label[for="masc"] {
     margin-right: 20px;
+}
+
+.visualizador {
+    border: 2px dashed #ccc;
+    width: 500px;
+    height: 500px;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+#imagemVisualizada {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: none;
+}
+
+.botoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.botoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px; 
+}
+
+.botao-concluir button,
+.botao-cancelar button {
+    width: 250px;
+    padding: 15px;
+    background-color: #5a128a;
+    border: none;
+    outline: none;
+    border-radius: 35px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    display: flex;
+    background-color: #00CFD4;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 60px;
 }
