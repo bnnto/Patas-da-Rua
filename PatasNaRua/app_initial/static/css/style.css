@@ -69,11 +69,12 @@ nav ul li .login{
 }
 
 .inicio-image{
-   margin: 11% 0 0 5%;
+   margin: auto;
+   width: 35%;
 }
 
 .inicio-image img{
-    width: 500px;
+    width: 100%;
     height: auto;
 }
 .inicio-text{
@@ -98,7 +99,7 @@ nav ul li .login{
 .swiper-container {
     border-radius: 10px;
     width: 80%;
-    height: 40vh; /* A altura se ajusta ao conteúdo */
+    height: 50vh; /* A altura se ajusta ao conteúdo */
     overflow: hidden;
     position: relative;
 }
@@ -212,7 +213,7 @@ nav ul li .login{
     padding: 50px 0;
 }
 .sobre img{
-    width: 500px;
+    width: 45%;
     height: auto;
 }
 .sobre-text{
