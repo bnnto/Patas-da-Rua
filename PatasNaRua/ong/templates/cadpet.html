@@ -33,35 +33,35 @@
                     <div class="conteudo">
                         <div class="esquerda">
                             <div class="visualizador">
-                                <input type="file" id="seletorDeImagem" accept="image/*">
+                                <input type="file" id="seletorDeImagem" name="foto" accept="image/*">
                                 <img id="imagemVisualizada" src="#">
                             </div>
                         </div>
                         <div class="direita">
-                            <form action="/enviar-dados" method="post" class="dados">
+                            <form action="/api/cadpet/" method="post" enctype="multipart/form-data" class="dados">
                                 <div class="inserir-dado">
                                     <label for="nome">Nome:</label>
-                                    <input type="text" id="nome">
+                                    <input type="text" id="nome" name="nome">
                                 </div>
                                 <div class="inserir-dado">
                                     <label for="raca">Raça:</label>
-                                    <input type="text" id="raca">
+                                    <input type="text" id="raca" name="raca">
                                 </div>
                                 <div class="inserir-dado">
                                     <label for="peso">Peso:</label>
-                                    <input type="text" id="peso">
+                                    <input type="text" id="peso" name="peso">
                                 </div>
                                 <div class="inserir-dado">
                                     <label for="idade">Idade:</label>
-                                    <input type="number" id="idade" step="any">
+                                    <input type="number" id="idade" name="idade" step="any">
                                 </div>
-                                <input type="radio" id="masc" name="sexo" value="masculino" class="input-sexo">
+                                <input type="radio" id="masc" name="sexo" value="M" class="input-sexo">
                                 <label for="masc">Macho</label>
-                                <input type="radio" id="fem" name="sexo" value="feminino" class="input-sexo">
+                                <input type="radio" id="fem" name="sexo" value="F" class="input-sexo">
                                 <label for="fem">Fêmea</label><br>
                                 <div class="inserir-dado">
                                     <label for="observacoes">Observações:</label>
-                                    <textarea id="observacoes" name="observacoes"></textarea>
+                                    <textarea id="observacoes" name="obs"></textarea>
                                 </div>
                             <div class="botoes">
                                 <div class="botao-concluir">
@@ -80,5 +80,6 @@
         <footer>
             <p>© 2025 Patas Na Rua</p>
         </footer>
+        <script src="{% static 'cadpet/js/cadpet.js' %}"></script>
     </body>
 </html>
