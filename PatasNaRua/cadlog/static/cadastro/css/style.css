@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #00cfd4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.retangulo {
+  position: relative;
+  width: 550px;
+  height: 650px;
+  padding: 40px;
+  background-color: white;
+  border-radius: 20px;
+  z-index: 10;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.retangulo h2 {
+  color: #5a128a;
+  font-size: 28px;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  font-family: Arial, Helvetica, sans-serif;
+}
