@@ -12,17 +12,13 @@
     <div class="quadrado">
       <h2>Login</h2>
 
-      {% if messages %} {% for message in messages %}
-      <div class="alert alert-{{ message.tags }}">{{ message }}</div>
-      {% endfor %} {% endif %}
-
       <form method="POST">
         {% csrf_token %}
         <div class="inserir-dado">
-          <input type="email" name="email" placeholder="E-mail" required />
+          <input type="email" id="email" name="email" placeholder="E-mail" required>
         </div>
         <div class="inserir-dado">
-          <input type="password" name="password" placeholder="Senha" required />
+          <input type="password" id="senha" name="senha" placeholder="Senha" required>
         </div>
         <div class="lembrar-esqueci">
           <label><input type="checkbox" />Lembrar-me</label>
@@ -30,9 +26,15 @@
         </div>
 
         <button type="submit" class="btn-login">Entrar</button>
-
+        
+        {% if messages %}
+            {% for message in messages %}
+                <p class="{{ message.tags }}">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+        
         <div class="extras">
-          <p>Não tem cadastro? <a href="#">Cadastre-se!</a></p>
+          <p>Não tem cadastro? <a href="{% url 'cadastro_escolha' %}">Cadastre-se!</a></p>
         </div>
       </form>
     </div>

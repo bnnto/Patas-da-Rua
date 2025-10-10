@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="{% static 'cadastro_ong/css/style.css' %}" />
+  </head>
+
+  <body>
+    <div class = "retangulo">
+      <h2>Cadastro ongue</h2>
+        <form method="post">
+        {% csrf_token %}
+        
+        <div>
+            <label for="nome_ong">Nome da ONG:</label>
+            <input type="text" id="nome_ong" name="nome_ong" required>
+        </div>
+        
+        <div>
+            <label for="cnpj">CNPJ:</label>
+            <input type="text" id="cnpj" name="cnpj" placeholder="00.000.000/0000-00" required>
+        </div>
+        
+        <div>
+            <label for="endereco">Endereço:</label>
+            <textarea id="endereco" name="endereco" rows="3" required></textarea>
+        </div>
+        
+        <div>
+            <label for="email_institucional">E-mail Institucional:</label>
+            <input type="email" id="email_institucional" name="email_institucional" required>
+        </div>
+        
+        <div>
+            <label for="nome_responsavel">Nome do Responsável:</label>
+            <input type="text" id="nome_responsavel" name="nome_responsavel" required>
+        </div>
+        
+        <div>
+            <label for="cpf_responsavel">CPF do Responsável:</label>
+            <input type="text" id="cpf_responsavel" name="cpf_responsavel" placeholder="000.000.000-00" required>
+        </div>
+        
+        <div>
+            <label for="telefone">Telefone:</label>
+            <input type="text" id="telefone" name="telefone" placeholder="(00) 00000-0000" required>
+        </div>
+        
+        <div>
+            <label for="senha">Senha de Acesso:</label>
+            <input type="password" id="senha" name="senha" required>
+        </div>
+        
+        <div>
+            <label for="confirma_senha">Confirmar Senha:</label>
+            <input type="password" id="confirma_senha" name="confirma_senha" required>
+        </div>
+        
+        <button type="submit">Cadastrar ONG</button>
+        
+        {% if messages %}
+            {% for message in messages %}
+                <p class="{{ message.tags }}">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    </form>
+  </body>
+</html>
