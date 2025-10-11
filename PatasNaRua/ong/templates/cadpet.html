@@ -33,8 +33,10 @@
                     <div class="conteudo">
                         <div class="esquerda">
                             <div class="visualizador">
-                                <input type="file" id="seletorDeImagem" name="foto" accept="image/*">
-                                <img id="imagemVisualizada" src="#">
+                                <label class="foto" for="fotoInput" tabIndex="0">
+                                <span class="fotoImg">Choose an image</span>
+                                </label>
+                                <input type="file" name="foto" id="fotoInput" accept="image/*">
                             </div>
                         </div>
                         <div class="direita">
@@ -80,6 +82,9 @@
         <footer>
             <p>© 2025 Patas Na Rua</p>
         </footer>
+        <script>
+        const PLACEHOLDER_URL = "{% static 'cadpet/images/placeholder_pet.png' %}";
+        </script>
         <script src="{% static 'cadpet/js/cadpet.js' %}"></script>
     </body>
-</html>
+</html> 
