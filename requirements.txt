@@ -1,3 +1,14 @@
 asgiref==3.9.1
-Django==5.2.6
 sqlparse==0.5.3
+Django==5.2.5
+django-cors-headers==4.7.0
+django-phonenumber-field==8.3.0
+django-redis==6.0.0
+djangorestframework==3.16.1
+mysqlclient==2.2.7
+phonenumberers==9.0.16
+pillow==11.3.0
+pydantic==2.11.7
+python-decouple==3.8
+python-dotenv==1.1.1
+redis==6.4.0
