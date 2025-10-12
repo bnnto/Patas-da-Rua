@@ -4,11 +4,15 @@ from django.contrib import messages
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
 from django.core.cache import cache
+from django.core.mail import send_mail
 from django.views.decorators.cache import never_cache
 from django.utils import timezone
+from django.conf import settings
 from datetime import timedelta
 from .models import CustomUser, ONG, UsuarioComum
 import re
+import random
+import string
 
 login_attempts = {}
 
@@ -90,6 +94,38 @@ def limpar_tentativas(identificador):
 def validar_telefone(telefone):
     telefone_limpo = re.sub(r'[^0-9]', '', telefone)
     return len(telefone_limpo) in [10, 11] and telefone_limpo[:2].isdigit()
+
+def gerar_codigo_recuperacao():
+    return ''.join(random.choices(string.digits, k=6))
+
+def enviar_email_recuperacao(email, codigo):
+    assunto = 'Recuperação de senha'
+    mensagem = f"""
+    Olá
+    Você solicitou a recuperação de senha.
+
+    Seu codigo de verificação é: {codigo}
+
+    Este código expira em 15 minutos
+
+    Se você não solicitou esta recuperação, ignore este email.
+
+    Atenciosamente,
+    Patas na Rua
+    """
+
+    try:
+        send_mail(
+            assunto,
+            mensagem,
+            settings.EMAIL_HOST_USER,
+            [email],
+            fail_silently=False,
+        )
+        return True
+    except Exception as e:
+        print(f"Erro ao enviar email: {str(e)}")
+        return False
 
 @never_cache
 def login_view(request):
@@ -316,7 +352,7 @@ def esqueci_senha(request):
 
         if not validar_email_formato(email):
             messages.info(request, 'Se o email estiver cadastrado, você receberá instruções de recuperação.')
-            return redirect('login')
+            return render(request, 'esqueci_senha.html')
         
         ip_address = request.META.get('REMOTE_ADDR')
         identificador = f"recuperacao_{ip_address}"
@@ -326,14 +362,105 @@ def esqueci_senha(request):
         if not pode_tentar:
             tempo_restante = int((tempo_liberacao - timezone.now()).total_seconds() / 60)
             messages.error(request, f'Muitas tentativas de recuperação. Tente novamente em {tempo_restante} minutos.')
-            return redirect('login')
+            return render(request, 'esqueci_senha.html')
         
         registrar_tentativa(identificador)
 
         try:
             user = CustomUser.objects.get(email=email)
-            messages.success(request, 'Se o email estiver cadastrado, você receberá instruções de recuperação')
+
+            codigo = gerar_codigo_recuperacao()
+
+            cache_key = f'codigo_recuperacao_{email}'
+            cache.set(cache_key, codigo, 60 * 15)
+
+            if enviar_email_recuperacao(email, codigo):
+                messages.success(request, 'Código de verificação enviado para seu email.')
+                return redirect('verificar_codigo', email=email)
+            else:
+                messages.error(request, 'Erro ao enviar email. Tente novamente')
+                return render(request, 'esqueci_senha.html')
+
         except CustomUser.DoesNotExist:
             messages.success(request, 'Se o email estiver cadastrado, você receberá instruções de recuperação')
-        return redirect('login')
-    return redirect('login')
+
+        return render(request, 'esqueci_senha.html')
+    
+    return render(request, 'esqueci_senha.html')
+
+@never_cache
+def verificar_codigo(request, email):
+    if request.method == 'POST':
+        codigo_digitado = request.POST.get('codigo', '').strip()
+
+        if not codigo_digitado:
+            messages.error(request, 'Digite o código recebido por email.')
+            return render(request, 'verificar_codigo.html', {'email': email})
+    
+        ip_address = request.META.get('REMOTE_ADDR')
+        identificador = f"verificacao_{ip_address}_{email}"
+        
+        pode_tentar, tempo_liberacao = verificar_rate_limit(identificador, max_tentativas=5, janela_tempo=15)
+        
+        if not pode_tentar:
+            tempo_restante = int((tempo_liberacao - timezone.now()).total_seconds() / 60)
+            messages.error(request, f'Muitas tentativas. Tente novamente em {tempo_restante} minutos.')
+            return render(request, 'verificar_codigo.html', {'email': email})
+        
+        registrar_tentativa(identificador)
+
+        cache_key = f'codigo_recuperacao_{email}'
+        codigo_armazenado = cache.get(cache_key)
+
+        if not codigo_armazenado:
+            messages.error(request, 'Código expirado. Solicite um novo código')
+            return redirect('esqueci_senha')
+        
+        if codigo_digitado == codigo_armazenado:
+            limpar_tentativas(identificador)
+            cache.set(f'email_verificado_{email}', True, 60 * 30)
+            messages.success(request, 'Código verificado! Defina sua nova senha.')
+            return redirect('redefinir_senha', email=email)
+        else:
+            messages.error(request, 'Código incorreto. Tente novamente.')
+    
+    return render(request, 'verificar_codigo.html', {'email': email})
+
+@never_cache
+def redefinir_senha(request, email):
+    if not cache.get(f'email_verificado_{email}'):
+        messages.error(request, 'Sessão expirada. Solicite uma nova recuperação.')
+        return redirect('esqueci_senha')
+    
+    if request.method == 'POST':
+        nova_senha = request.POST.get('nova_senha')
+        confirma_senha = request.POST.get('confirma_senha')
+
+        if not nova_senha or not confirma_senha:
+            messages.error(request, 'Preencha todos os campos.')
+            return render(request, 'redefinir_senha.html', {'email': email})
+        
+        if nova_senha != confirma_senha:
+            messages.error(request, 'As senhas não coincidem.')
+            return render(request, 'redefinir_senha.html', {'email': email})
+
+        if len(nova_senha) < 8:
+            messages.error(request, 'A senha deve ter no mínimo 8 caracteres.')
+            return render(request, 'redefinir_senha.html', {'email': email})
+        
+        try:
+            user = CustomUser.objects.get(email=email)
+            user.set_password(nova_senha)
+            user.save()
+
+            cache.delete(f'email_verificado_{email}')
+            cache.delete(f'codigo_recuperacao_{email}')
+
+            messages.success(request, 'Senha redefinida com sucesso! Faça login com sua nova senha.')
+            return redirect('login')
+        
+        except CustomUser.DoesNotExist:
+            messages.error(request, 'Usuário não encontrado.')
+            return redirect('esqueci_senha')
+    
+    return render(request, 'redefinir_senha.html', {'email': email})

@@ -39,23 +39,6 @@
           </div>
         </form>
       </div>
-
-      <div id="tela-esqueci-senha">
-        <h2>Esqueci minha senha</h2>
-        <p>Digite seu e-mail abaixo para recuperar a senha</p>
-        <form method="POST" action="{% url 'esqueci_senha' %}">
-          {% csrf_token %}
-          <div class="inserir-dado">
-            <input type="email" name="email" placeholder="E-mail" required>
-          </div>
-          <button type="submit" class="btn-esqueci">Concluir</button>
-
-          <div class="extras_e">
-            <p><a href="{% url 'login' %}" id="link-voltar-login">Voltar para o login</a></p>
-          </div>
-        </form>
-      </div>
     </div>
-    <script src="{% static 'login/js/script.js' %}"></script>
   </body>
 </html>

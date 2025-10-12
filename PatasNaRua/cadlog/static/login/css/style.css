@@ -124,7 +124,3 @@ body {
 .extras a:hover {
   text-decoration: underline;
 }
-
-#tela-esqueci-senha {
-  display: none;
-}
