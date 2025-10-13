@@ -57,7 +57,7 @@ main {
     background-color: #9269F3;
     color: white;
     width: 1480px;
-    height: 1200px;
+    height: 900px;
     padding: 10px 50px 50px 50px;
     border-radius: 20px;
     margin: 20px;
@@ -79,7 +79,7 @@ main {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 1100px;
+    height: 750px;
 }    
 
 .esquerda {
@@ -97,77 +97,14 @@ main {
     height: 100%;
 }
 
-.inserir-dado {
-    position: relative;
-    margin-bottom: 30px;
-    width: 650px;
-}
-
-.inserir-dado input,
-.inserir-dado textarea {
-    width: 650px;
-    padding: 10px 22px;
-    background-color: white;
-    border: none;
-    outline: none;
-    border-radius: 5px;
-    font-size: 16px;
-    color: black;
-    transition: all 0.3s ease;
-}
-
-.inserir-dado textarea {
-    height: 110px;
-    resize: none;
-}
-
-.input-radio {
-    margin-bottom: 25px;
-}
-
-label[for="masc"] {
-    margin-right: 20px;
-}
-
-label[for="sim"] {
-    margin-right: 20px;
-}
-
 .visualizador {
     width: 500px;
     height: 500px;
-    margin: 40px auto;
+    margin: 20px auto;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-}
-
-#fotoInput {
-    display: none;
-}
-
-.foto {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    cursor: pointer;
-    border: 2px dashed;
-    transition: color 200ms ease-in-out;
-}
-
-.foto img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.foto:hover {
-  color: #cac1c1;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .botoes {
@@ -200,8 +137,4 @@ footer {
     align-items: center;
     width: 100%;
     height: 60px;
-}
-
-p {
-    margin-bottom: 10px;
 }

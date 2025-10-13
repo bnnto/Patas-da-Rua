@@ -46,6 +46,14 @@
                                     <input type="text" id="nome" name="nome">
                                 </div>
                                 <div class="inserir-dado">
+                                    <label for="especie">Espécie:</label>
+                                    <input type="text" id="especie" name="especie">
+                                </div>
+                                <div class="inserir-dado">
+                                    <label for="porte">Porte:</label>
+                                    <input type="text" id="porte" name="porte">
+                                </div>
+                                <div class="inserir-dado">
                                     <label for="raca">Raça:</label>
                                     <input type="text" id="raca" name="raca">
                                 </div>
@@ -53,17 +61,26 @@
                                     <label for="peso">Peso:</label>
                                     <input type="text" id="peso" name="peso">
                                 </div>
+                                <input type="radio" id="masc" name="sexo" value="M" class="input-radio">
+                                <label for="masc">Macho</label>
+                                <input type="radio" id="fem" name="sexo" value="F" class="input-radio">
+                                <label for="fem">Fêmea</label><br>
                                 <div class="inserir-dado">
                                     <label for="idade">Idade:</label>
                                     <input type="number" id="idade" name="idade" step="any">
                                 </div>
-                                <input type="radio" id="masc" name="sexo" value="M" class="input-sexo">
-                                <label for="masc">Macho</label>
-                                <input type="radio" id="fem" name="sexo" value="F" class="input-sexo">
-                                <label for="fem">Fêmea</label><br>
+                                <p>Castrado:</p>
+                                <input type="radio" id="sim" name="castrado" value="S" class="input-radio">
+                                <label for="sim">Sim</label>
+                                <input type="radio" id="nao" name="castrado" value="N" class="input-radio">
+                                <label for="nao">Não</label>
                                 <div class="inserir-dado">
                                     <label for="observacoes">Observações:</label>
                                     <textarea id="observacoes" name="obs"></textarea>
+                                </div>
+                                <div class="inserir-dado">
+                                    <label for="historico_saude">Histórico de Saúde:</label>
+                                    <textarea id="historico_saude" name="historico_saude"></textarea>
                                 </div>
                             <div class="botoes">
                                 <div class="botao-concluir">
@@ -82,9 +99,6 @@
         <footer>
             <p>© 2025 Patas Na Rua</p>
         </footer>
-        <script>
-        const PLACEHOLDER_URL = "{% static 'cadpet/images/placeholder_pet.png' %}";
-        </script>
         <script src="{% static 'cadpet/js/cadpet.js' %}"></script>
     </body>
 </html> 

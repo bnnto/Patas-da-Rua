@@ -7,16 +7,22 @@ from rest_framework import status
 def cadpet_page(request):
     return render(request, "cadpet.html")
 
-# Create your views here.
+def infopet_ong(request):
+    return render(request, "infopet_ong.html")
+
+
 @api_view(["POST"])
 def cadpet_view(request):
     nome = request.data.get("nome")
+    especie = request.data.get("especie")
+    porte = request.data.get("porte")
     raca = request.data.get("raca")
     peso = None
     idade = None
     sexo = request.data.get("sexo")
     obs = request.data.get("obs")
     foto = request.FILES.get("foto")
+    historico_saude = request.data.get("historico_saude")
 
     try:
         peso_str = request.data.get("peso")
@@ -34,20 +40,23 @@ def cadpet_view(request):
             status=status.HTTP_400_BAD_REQUEST
     )
 
-#    if not nome or not raca or not sexo or not foto or peso is None or idade is None:
-#        return Response(
-#            {"erro": "Faltam campos obrigatorios: Nome, Raca, Peso, Idade, Sexo e Foto."},
-#            status=status.HTTP_400_BAD_REQUEST
-#        )
+    if not nome or not especie or not porte or not raca or not sexo or not foto or peso is None or idade is None or not historico_saude:
+        return Response(
+            {"erro": "Faltam campos obrigatorios: Nome, Raca, Peso, Idade, Sexo e Foto."},
+            status=status.HTTP_400_BAD_REQUEST
+        )
 
     pet = Pet.objects.create(
         nome=nome,
+        especie=especie,
+        porte=porte,
         raca=raca,
         peso=peso,
         idade=idade,
         sexo=sexo,
         obs=obs,
-        foto=foto
+        foto=foto,
+        historico_saude = historico_saude
     )
 
     return Response({
@@ -56,11 +65,14 @@ def cadpet_view(request):
         "dados": {
             "id": pet.id,
             "nome": pet.nome,
+            "especie": pet.especie,
+            "porte": pet.porte,
             "raca": pet.raca,
             "peso": pet.peso,
             "idade": pet.idade,
             "sexo": pet.sexo,
             "obs": pet.obs,
+            "historico_saude": pet.historico_saude,
             "foto": pet.foto.url if pet.foto else None
         }
     })

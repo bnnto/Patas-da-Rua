@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Patas Na Rua</title>
+        <link rel="stylesheet" href="{% static 'infopet/css/style.css' %}">
+    </head>
+
+    <body>
+        <header>
+            <div class="logo">
+                <img src="{% static 'cadpet/images/logo.png' %}" alt="logo">
+            </div>
+        </header>
+        <nav>
+            <ul class="menu">
+                <li><a href="#">Rastrear</a></li>
+                <li><a href="#">Cadastrar</a></li>
+                <li><a href="#">Histórico</a></li>
+                <li><a href="#">Solicitações</a></li>
+                <li><a href="#">Pets</a></li>
+            </ul>
+        </nav>
+        
+        <main>
+            <section>
+                <div class="quadrado">
+                    <div class="titulo">
+                        <h1>Informações do Pet</h1>
+                    </div>
+                    <div class="conteudo">
+                        <div class="esquerda">
+                            <div class="visualizador">
+                            </div>
+                        </div>
+                        <div class="direita">
+                            
+                            <div class="botoes">
+                                <div class="botao-concluir">
+                                    <button type="submit">Editar</button>
+                                </div>
+                                <div class="botao-cancelar">
+                                    <button type="button">Remover</button> 
+                                </div>
+                            </div>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>© 2025 Patas Na Rua</p>
+        </footer>
+        <script src="{% static 'infopetong/js/infopetong.js' %}"></script>
+    </body>
+</html> 
