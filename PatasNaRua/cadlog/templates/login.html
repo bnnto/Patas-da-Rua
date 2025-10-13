@@ -10,33 +10,35 @@
 
   <body>
     <div class="quadrado">
-      <h2>Login</h2>
+      <div id="tela-login">
+        <h2>Login</h2>
 
-      <form method="POST">
-        {% csrf_token %}
-        <div class="inserir-dado">
-          <input type="email" id="email" name="email" placeholder="E-mail" required>
-        </div>
-        <div class="inserir-dado">
-          <input type="password" id="senha" name="senha" placeholder="Senha" required>
-        </div>
-        <div class="lembrar-esqueci">
-          <label><input type="checkbox" />Lembrar-me</label>
-          <a href="#">Esqueci minha senha</a>
-        </div>
+        <form method="POST">
+          {% csrf_token %}
+          <div class="inserir-dado">
+            <input type="email" id="email" name="email" placeholder="E-mail" required>
+          </div>
+          <div class="inserir-dado">
+            <input type="password" id="senha" name="senha" placeholder="Senha" required>
+          </div>
+          <div class="lembrar-esqueci">
+            <label><input type="checkbox" name="lembrar" value="on" />Lembrar-me</label>
+            <a href="{% url 'esqueci_senha' %}" id="link-esqueci-senha">Esqueci minha senha</a>
+          </div>
 
-        <button type="submit" class="btn-login">Entrar</button>
-        
-        {% if messages %}
-            {% for message in messages %}
-                <p class="{{ message.tags }}">{{ message }}</p>
-            {% endfor %}
-        {% endif %}
-        
-        <div class="extras">
-          <p>Não tem cadastro? <a href="{% url 'cadastro_escolha' %}">Cadastre-se!</a></p>
-        </div>
-      </form>
+          <button type="submit" class="btn-login">Entrar</button>
+          
+          {% if messages %}
+              {% for message in messages %}
+                  <p class="{{ message.tags }}">{{ message }}</p>
+              {% endfor %}
+          {% endif %}
+          
+          <div class="extras">
+            <p>Não tem cadastro? <a href="{% url 'cadastro_escolha' %}">Cadastre-se!</a></p>
+          </div>
+        </form>
+      </div>
     </div>
   </body>
 </html>

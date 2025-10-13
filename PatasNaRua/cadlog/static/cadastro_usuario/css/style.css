@@ -11,6 +11,7 @@ body {
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .retangulo {
@@ -34,4 +35,32 @@ body {
   margin-bottom: 40px;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.insira-nome {
+  display: flex;
+  flex-direction: column;
+}
+
+.insira-nome label {
+  display: flex-start;
+  margin-left: 36px;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: black;
+}
+
+.insira-nome input {
+  width: 400px;
+  max-width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.3s;
+  align-self: center;
+}
+
+.insira-nome input:focus {
+  border-color: #5a128a;
 }

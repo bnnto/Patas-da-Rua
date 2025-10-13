@@ -1,23 +1,38 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Escolha o Tipo de Cadastro</title>
-    <div class="container">
-        <div class="cards-container">
-            <a href="/cadastro/usuario/" class="card card-usuario">
-                <div class="card-icon">
-                </div>
-                <h2>Usuário</h2>
-                <p>Cadastre-se como usuário individual para acessar e participar das ações das ONGs</p>
-            </a>
+    <link
+      rel="stylesheet"
+      href="{% static 'cadastro_escolha/css/style.css' %}"
+    />
+  </head>
 
-            <a href="/cadastro/ong/" class="card card-ong">
-                <div class="card-icon">
-                </div>
-                <h2>ONG</h2>
-                <p>Cadastre sua organização para criar campanhas e conectar-se com voluntários</p>
-            </a>
-        </div>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Bem-vindo!</h1>
+        <p>Escolha como você gostaria de se cadastrar</p>
+      </div>
+
+      <div class="cards-container">
+        <a href="/cadastro/usuario/" class="card card-usuario">
+          <div class="card-icon">👤</div>
+          <h2>Usuário</h2>
+          <p>Cadastre-se como usuário para acessar o site</p>
+        </a>
+
+        <a href="/cadastro/ong/" class="card card-ong">
+          <div class="card-icon">🏠</div>
+          <h2>ONG</h2>
+          <p>
+            Cadastre sua organização para ampliar a visibilidade dos pets de rua
+          </p>
+        </a>
+      </div>
     </div>
+  </body>
+</html>

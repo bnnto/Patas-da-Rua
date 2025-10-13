@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redefinir Senha</title>
+    <link rel="stylesheet" href="{% static 'login/css/style.css' %}">
+</head>
+
+<body>
+    <div class="quadrado">
+        <div id="tela-redefinir-senha">
+            <h2>Redefinir Senha</h2>
+            <p>Defina sua nova senha para: <strong>{{ email }}</strong></p>
+        
+            {% if messages %}
+                {% for message in messages %}
+                    <p class="{{ message.tags }}">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+
+            <form method="POST" id="formRedefinirSenha">
+                {% csrf_token %}
+
+                <div class="inserir-dado">
+                    <input
+                        type="password"
+                        name="nova_senha"
+                        id="nova_senha"
+                        placeholder="Nova senha"
+                        minlength="8"
+                        required
+                    >
+                </div>
+
+                <div class="inserir-dado">
+                    <input
+                        type="password"
+                        name="confirma_senha"
+                        id="confirma_senha"
+                        placeholder="Confirme a nova senha"
+                        minlength="8"
+                        required
+                    >
+                </div>
+
+                <div class="requisitos-senha">
+                    <strong>Requisitos da senha:</strong>
+                    <ul>
+                        <li>Mínimo de 8 caracteres</li>
+                        <li>As senhas devem ser idênticas</li>
+                    </ul>
+                </div>
+
+                <button type="submit" class="btn-esqueci">Redefinir senha</button>
+
+                <div class="extras_e">
+                    <p><a href="{% url 'login' %}">Voltar para o login</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="{% static 'redefinir_senha/js/script.js' %}"></script>
+</body>
+</html>
+ 

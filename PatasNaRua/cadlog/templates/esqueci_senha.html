@@ -1,0 +1,37 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Senha</title>
+    <link rel="stylesheet" href="{% static 'login/css/style.css' %}">
+</head>
+<body>
+    <div class="quadrado">
+        <div id="tela-esqueci-senha">
+            <h2>Recuperar Senha</h2>
+            <p>Digite seu e-mail para receber um código de verificação</p>
+            
+            {% if messages %}
+                {% for message in messages %}
+                    <p class="{{ message.tags }}">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+            
+            <form method="POST">
+                {% csrf_token %}
+                <div class="inserir-dado">
+                    <input type="email" name="email" placeholder="E-mail" required>
+                </div>
+                <button type="submit" class="btn-esqueci">Enviar Código</button>
+
+                <div class="extras_e">
+                    <p><a href="{% url 'login' %}">Voltar para o login</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
