@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verificar Código</title>
-    <link rel="stylesheet" href="{% static 'login/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'verificar_codigo/css/style.css' %}">
 </head>
 <body>
     <div class="quadrado">
@@ -33,11 +33,11 @@
                     >
                 </div>
                 
-                <button type="submit" class="btn-esqueci">Verificar Código</button>
+                <button type="submit" class="btn">Verificar Código</button>
 
                 <div class="extras_e">
                     <p><a href="{% url 'esqueci_senha' %}">Solicitar novo código</a></p>
-                    <p><a href="{% url 'login' %}">Voltar para o login</a></p>
+                    <p><a href="{% url 'login' %}">⮪ Voltar para o login</a></p>
                 </div>
             </form>
         </div>

@@ -59,36 +59,6 @@ body {
   font-size: 16px;
   color: black;
   transition: all 0.3s ease;
-} 
-
-.lembrar-esqueci {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 25px;
-  font-size: 14px;
-  color: black;
-}
-
-.lembrar-esqueci label {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-
-.lembrar-esqueci input {
-  margin-right: 8px;
-  accent-color: #5a128a;
-}
-
-.lembrar-esqueci a {
-  color: #5a128a;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.lembrar-esqueci a:hover {
-  text-decoration: underline;
 }
 
 .btn {
@@ -112,24 +82,24 @@ body {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-.extras {
+.extras_e {
   width: 100%;
   margin-top: 25px;
 }
 
-.extras a {
+.extras_e a {
   color: #5a128a;
   text-decoration: none;
   font-weight: 600;
   transition: all 0.3s ease;
 }
 
-.extras p {
-  margin: 0;
+.extras_e p {
+  margin: 10px;
   font-size: 14px;
   text-align: center;
 }
 
-.extras a:hover {
+.extras_e a:hover {
   text-decoration: underline;
 }
