@@ -59,6 +59,43 @@ body {
   font-size: 16px;
   color: black;
   transition: all 0.3s ease;
+} 
+
+.requisitos-senha{
+    background-color: #fff4f4;
+    border: 1px solid #f5c2c2;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 0 auto 30px;
+    color: black;
+    width: fit-content;
+    text-align: left;
+}
+
+.requisitos-senha strong {
+    display: block;
+    margin-bottom: 6px;
+    color: #b30000;
+}
+
+.requisitos-senha ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.requisitos-senha li{
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 4px;
+}
+
+.requisitos-senha li::before{
+    content: "*";
+    position: absolute;
+    left: 0;
+    color: red;
+    font-weight: bold;
 }
 
 .btn {
@@ -88,7 +125,7 @@ body {
   margin-top: 25px;
 }
 
-.extras_e a {
+.extras_e a { 
   color: #5a128a;
   text-decoration: none;
   font-weight: 600;
@@ -96,7 +133,7 @@ body {
 }
 
 .extras_e p {
-  margin: 10px;
+  margin: 0;
   font-size: 15px;
   text-align: center;
 }

@@ -69,8 +69,9 @@ body {
   outline: none;
   border-radius: 35px;
   color: white;
-  font-size: 20px;
+  font-size: 19px;
   font-weight: 600;
+  letter-spacing: 1px;
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -96,7 +97,7 @@ body {
 
 .extras_e p {
   margin: 0;
-  font-size: 17px;
+  font-size: 15px;
   text-align: center;
 }
 

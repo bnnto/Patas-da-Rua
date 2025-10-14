@@ -1,4 +1,5 @@
 from django.urls import path
+from django.views.generic import TemplateView
 from . import views
 
 urlpatterns = [
@@ -9,4 +10,5 @@ urlpatterns = [
     path('cadastro/', views.cadastro_escolha, name='cadastro_escolha'),
     path('cadastro/ong/', views.cadastro_ong, name='cadastro_ong'),
     path('cadastro/usuario/', views.cadastro_usuario, name='cadastro_usuario'),
+    path('testar/redefinir-senha/', TemplateView.as_view(template_name='redefinir_senha.html')),
 ]
