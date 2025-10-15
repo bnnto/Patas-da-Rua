@@ -9,4 +9,5 @@ urlpatterns = [
     path('', include('app_initial.urls')),
     path('', include('cadlog.urls')),
     path('', include('ong.urls')),
+    path('', include('user.urls')),
 ]

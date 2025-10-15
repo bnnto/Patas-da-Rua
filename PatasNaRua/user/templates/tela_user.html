@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela User - Patas na Rua</title>
+    <link rel="stylesheet" href="{% static 'css/style_user.css' %}">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+</head>
+<body>
+    <header class="header-user">
+        <div class="logo-user">
+            <img src="{% static 'img/logo.png' %}" alt="logo Patas na Rua">
+        </div>
+        <div class="header-text">
+            <h2>Adote amor, <br> apadrinhe esperança.</h2>
+        </div>
+        <div class="user-icon">
+            <img src="{% static 'img/user-icon.png' %}" alt="Perfil">
+        </div>
+    </header>
+
+    <main class="main-user">
+        <section class="search-section">
+            <input type="text" placeholder="Pesquisar pet">
+            <button class="btn-adotar">Adotar</button>
+            <button class="btn-apadrinhar">Apadrinhamento</button>
+        </section>
+
+        <section class="pets-section">
+            <h3>Cachorros disponíveis:</h3>
+
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    {% for dog in dogs %}
+                    <div class="swiper-slide pet-card">
+                        <img src="{{ dog.imagem.url }}" alt="{{ dog.nome }}">
+                        <h4>{{ dog.nome }}</h4>
+                        <p>Raça: {{ dog.raca }}</p>
+                        <p>Idade: {{ dog.idade }}</p>
+                        <a href="{% url 'detalhes_pet' dog.id %}" class="info-btn">Mais informações</a>
+                    </div>
+                    {% empty %}
+                    <p>Nenhum cachorro disponível no momento.</p>
+                    {% endfor %}
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+
+        <section class="pets-section">
+            <h3>Gatos disponíveis:</h3>
+
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    {% for cat in cats %}
+                    <div class="swiper-slide pet-card">
+                        <img src="{{ cat.imagem.url }}" alt="{{ cat.nome }}">
+                        <h4>{{ cat.nome }}</h4>
+                        <p>Raça: {{ cat.raca }}</p>
+                        <p>Idade: {{ cat.idade }}</p>
+                        <a href="{% url 'detalhes_pet' cat.id %}" class="info-btn">Mais informações</a>
+                    </div>
+                    {% empty %}
+                    <p>Nenhum gato disponível no momento.</p>
+                    {% endfor %}
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Patas na Rua - Todos os direitos reservados</p>
+    </footer>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        const sliders = document.querySelectorAll('.swiper-container');
+        sliders.forEach(slider => {
+            new Swiper(slider, {
+                loop: true,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                slidesPerView: 2,
+                spaceBetween: 20,
+            });
+        });
+    </script>
+</body>
+</html>
+

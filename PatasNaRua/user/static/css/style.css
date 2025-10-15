@@ -1,0 +1,91 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background-color: #fdfdfd;
+}
+
+.header-user {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #2ee0e9;
+    color: white;
+    padding: 20px;
+    border-radius: 0 0 20px 20px;
+}
+
+.header-user img {
+    height: 60px;
+}
+
+.search-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    gap: 10px;
+}
+
+.search-section input {
+    width: 200px;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid #aaa;
+}
+
+.btn-adotar, .btn-apadrinhar {
+    background-color: #a58cf2;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 8px 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-adotar:hover, .btn-apadrinhar:hover {
+    background-color: #8f73e0;
+}
+
+.pets-section {
+    margin: 30px;
+}
+
+.pets-section h3 {
+    color: #333;
+    border-bottom: 2px solid #a58cf2;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.pet-card {
+    background-color: #d8ccff;
+    border-radius: 20px;
+    padding: 15px;
+    text-align: center;
+    width: 200px;
+}
+
+.pet-card img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.info-btn {
+    display: inline-block;
+    background-color: #24e4e8;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #2ee0e9;
+    color: white;
+    border-radius: 20px 20px 0 0;
+    margin-top: 40px;
+}
