@@ -52,35 +52,16 @@ main {
 
 .quadrado {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
     background-color: #9269F3;
     color: white;
     width: 1480px;
     height: 900px;
-    padding: 10px 50px 50px 50px;
+    padding: 50px;
     border-radius: 20px;
     margin: 20px;
-}
-
-.titulo {
-    display: flex;
-    width: 100%;
-    height: 100px;
-    align-items: center;
-    text-align: center;
-    padding-bottom: 10px;
-    box-sizing: border-box;
-    margin-top: 10px;
-}
-
-.conteudo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 750px;
-}    
+} 
 
 .esquerda {
     display: flex;
@@ -91,43 +72,30 @@ main {
 
 .direita {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    justify-content: top;
+    align-items: left;
     width: 50%;
     height: 100%;
 }
 
-.visualizador {
-    width: 500px;
-    height: 500px;
-    margin: 20px auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+.nome-pet {
+    margin: 100px 50px 50px 50px;
 }
 
-.botoes {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
+.informacoes {
+    margin-bottom: 30px;
+    font-size: 20px;
 }
 
-.botao-concluir button,
-.botao-cancelar button {
-    width: 250px;
-    padding: 15px;
-    background-color: #5a128a;
-    border: none;
-    outline: none;
-    border-radius: 35px;
-    color: white;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+.info,
+.hist-saude {
+    height: 100px;
+    font-size: 20px;
+}
+
+.status-pet {
+    align-items: left;
 }
 
 footer {

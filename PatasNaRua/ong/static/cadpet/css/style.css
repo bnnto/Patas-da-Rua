@@ -133,6 +133,10 @@ label[for="sim"] {
     margin-right: 20px;
 }
 
+label[for="gato"] {
+    margin-right: 20px;
+}
+
 .visualizador {
     width: 500px;
     height: 500px;

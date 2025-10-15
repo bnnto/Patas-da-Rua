@@ -22,7 +22,7 @@ def cadpet_view(request):
     peso = None
     idade = None
     sexo = request.data.get("sexo")
-    obs = request.data.get("obs")
+    info = request.data.get("info")
     foto = request.FILES.get("foto")
     historico_saude = request.data.get("historico_saude")
 
@@ -42,7 +42,7 @@ def cadpet_view(request):
             status=status.HTTP_400_BAD_REQUEST
     )
 
-    if not nome or not especie or not porte or not raca or not sexo or not foto or peso is None or idade is None or not historico_saude:
+    if not nome or not especie or not porte or not raca or not sexo or not foto or peso is None or idade is None:
         return Response(
             {"erro": "Faltam campos obrigatorios: Nome, Raca, Peso, Idade, Sexo e Foto."},
             status=status.HTTP_400_BAD_REQUEST
@@ -56,7 +56,7 @@ def cadpet_view(request):
         peso=peso,
         idade=idade,
         sexo=sexo,
-        obs=obs,
+        info=info,
         foto=foto,
         historico_saude = historico_saude
     )
@@ -73,7 +73,7 @@ def cadpet_view(request):
             "peso": pet.peso,
             "idade": pet.idade,
             "sexo": pet.sexo,
-            "obs": pet.obs,
+            "obs": pet.info,
             "historico_saude": pet.historico_saude,
             "foto": pet.foto.url if pet.foto else None
         }

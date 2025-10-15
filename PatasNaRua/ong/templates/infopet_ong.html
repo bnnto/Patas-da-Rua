@@ -16,8 +16,8 @@
         </header>
         <nav>
             <ul class="menu">
-                <li><a href="#">Rastrear</a></li>
-                <li><a href="#">Cadastrar</a></li>
+                <li><a href="{% url 'localpet_ong' %}">Rastrear</a></li>
+                <li><a href="{% url 'cadpet_page' %}">Cadastrar</a></li>
                 <li><a href="#">Histórico</a></li>
                 <li><a href="#">Solicitações</a></li>
                 <li><a href="#">Pets</a></li>
@@ -27,26 +27,48 @@
         <main>
             <section>
                 <div class="quadrado">
-                    <div class="titulo">
-                        <h1>Informações do Pet</h1>
+                    <div class="esquerda">
+                        <div class="foto">
+                            {% if pet.imagem %}
+                                <img src="{{ pet.imagem.url }}" alt="{{ pet.nome }}">
+                            {% endif %}
+                        </div>
+                        <div class="status-pet">
+                            <p><strong>Status do pet:</strong> {{ status.pet }}</p>
+                        </div>
                     </div>
-                    <div class="conteudo">
-                        <div class="esquerda">
-                            <div class="visualizador">
-                            </div>
+                    <div class="direita">
+                        <div class="nome-pet">
+                            <p><strong>{{ nome.pet }}</strong></p>
                         </div>
-                        <div class="direita">
-                            
-                            <div class="botoes">
-                                <div class="botao-concluir">
-                                    <button type="submit">Editar</button>
-                                </div>
-                                <div class="botao-cancelar">
-                                    <button type="button">Remover</button> 
-                                </div>
-                            </div>
-                        </form>
+                        <div class="informacoes">
+                            <p><strong>Espécie:</strong> {{ especie.pet }}</p>
                         </div>
+                        <div class="informacoes">
+                            <p><strong>Porte:</strong> {{ porte.pet }}</p>
+                        </div>
+                        <div class="informacoes">
+                            <p><strong>Raça:</strong> {{ raca.pet }}</p>
+                        </div>
+                        <div class="informacoes">
+                            <p><strong>Sexo:</strong> {{ Sexo.pet }}</p>
+                        </div>
+                        <div class="informacoes">
+                            <p><strong>Idade:</strong> {{ idade.pet }}</p>
+                        </div>
+                        <div class="informacoes">
+                            <p><strong>Peso:</strong> {{ peso.pet }}</p>
+                        </div>
+                        <div class="informacoes">
+                            <p><strong>Castrado:</strong> {{ cadastro.pet }}</p>
+                        </div>
+                        <div class="info">
+                            <p><strong>Sobre o pet:</strong> {{ info.pet }}</p>
+                        </div>
+                        <div class="hist-saude">
+                            <p><strong>Histórico de Saúde:</strong> {{ historico_saude }}</p>
+                        </div>
+                    </form>
                     </div>
                 </div>
             </section>
