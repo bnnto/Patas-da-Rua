@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=1.1">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <title>Patas Na Rua</title>
 </head>
@@ -31,23 +31,10 @@
                 <img src="{% static 'images/dog&cat.png' %}" alt="cachorro e gato">
             </div>
         </section>
+        <div class="mission">
+            <h1>Unindo pessoas e pets, levando amor e novas chances!</h1>
+        </div>
         <section class="valores" id="valores">
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="{% static 'images/1.png' %}" alt=""></div>
-                    <div class="swiper-slide"><img src="{% static 'images/2.png' %}" alt=""></div>
-                    <div class="swiper-slide"><img src="{% static 'images/3.png' %}" alt=""></div>
-                    <div class="swiper-slide"><img src="{% static 'images/4.png' %}" alt=""></div>
-                    <div class="swiper-slide"><img src="{% static 'images/5.png' %}" alt=""></div>
-                </div>
-                <div class="swiper-pagination"></div>
-
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-
-                <div class="swiper-scrollbar"></div>
-            </div>
-
             <div class="valores-description">
                 <div class="valores-card">
                     <img src="{% static 'images/adotar.png' %}" alt="adocao">
@@ -61,27 +48,62 @@
                         ou gato e contribua mensalmente para que ele tenha alimentação, cuidados veterinários e muito carinho.</p>
                 </div>
                 <div class="valores-card">
-                    <img src="{% static 'images/apadrinhar.png' %}" alt="apadrinhamento">
-                    <p>Nem todos podem adotar, mas todos podem ajudar!<span> Apadrinhe</span> um cão 
-                        ou gato e contribua mensalmente para que ele tenha alimentação, cuidados veterinários e muito carinho.</p>
+                    <img src="{% static 'images/share.png' %}" alt="apadrinhamento">
+                    <p>Sua ajuda está a 1 clique! Visite o site da ONG e <span>compartilhe</span> o link. Cada repost leva um animal para casa. </p>
                 </div>
             </div>
         </section>
         <section class="sobre" id="sobre">
+            <div class="title">
+                 <h1>Conheça-nos um pouco mais...</h1>
+            </div>
+            <div class="slide">
+              <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="{% static 'images/6.png' %}" alt=""></div>
+                        <div class="swiper-slide"><img src="{% static 'images/2.png' %}" alt=""></div>
+                        <div class="swiper-slide"><img src="{% static 'images/3.png' %}" alt=""></div>
+                        <div class="swiper-slide"><img src="{% static 'images/4.png' %}" alt=""></div>
+                        <div class="swiper-slide"><img src="{% static 'images/5.png' %}" alt=""></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+
+                    <div class="swiper-scrollbar"></div>
+                </div>
+            </div>
+            
             <div class="sobre-content">
                 <div class="sobre-text">
-                     <h2>Quem Somos</h2>
+                     <h1>Nossa missão é resgatar vidas</h1>
                      <p>Somos uma ONG apaixonada por transformar vidas! Resgatamos cães e gatos em situação de abandono, oferecendo amor, cuidados e um
                      lar temporário até encontrarem famílias que os acolham para sempre.</p>
                 </div>
-                <img src="{% static 'images/ong.png' %}" alt="ong">
             </div>
         </section>
     </main>
-    <footer>
+    <footer class="footer-container">
         <div class="footer-content">
-            <img src="{% static 'images/logo.png' %}" alt="logo">
-            <p>&copy; 2025 Patas Na Rua. Todos os direitos reservados.</p>
+
+            <div class="contributors-section">
+                <h3>Contribuidores:</h3>
+                <ul class="contributors-list">
+                    <li><a href="https://github.com/Anninhaxs" target="_blank">Anna Beatriz dos Santos Silva</a></li>
+                    <li><a href="https://github.com/bnnto" target="_blank">Bento Guilherme Gomes Oliveira</a></li>
+                    <li><a href="https://github.com/BrunoFerreiraLyra" target="_blank">Bruno Ferreira de Andrade Lyra</a></li>
+                    <li><a href="https://github.com/joao0cb" target="_blank">João Victor Castelo Branco de Sena</a></li>
+                    <li><a href="https://github.com/LettyciaDev" target="_blank">Lettycia Vitoria Melo de França</a></li>
+                    <li><a href="https://github.com/lorennam" target="_blank">Lorenna Meneses de Almeida</a></li>
+                </ul>
+            </div>
+
+            <div class="mentor-section">
+                <p>Mentor: <strong>Lucas Farias</strong></p>
+            </div>
+
+            <p class="copyright">&copy; Patas Na Rua 2025</p>
         </div>
     </footer>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>

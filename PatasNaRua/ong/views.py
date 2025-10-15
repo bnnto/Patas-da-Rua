@@ -10,6 +10,8 @@ def cadpet_page(request):
 def infopet_ong(request):
     return render(request, "infopet_ong.html")
 
+def localpet_ong(request):
+    return render(request, "localpet.html")
 
 @api_view(["POST"])
 def cadpet_view(request):
