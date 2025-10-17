@@ -72,6 +72,7 @@ main {
     padding-bottom: 10px;
     box-sizing: border-box;
     margin-top: 10px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .conteudo {
@@ -190,11 +191,18 @@ label[for="gato"] {
     outline: none;
     border-radius: 35px;
     color: white;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.botao-concluir button:hover,
+.botao-cancelar button:hover {
+  background-color: #3a0e58;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 footer {

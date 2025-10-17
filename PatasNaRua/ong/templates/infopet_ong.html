@@ -11,7 +11,7 @@
     <body>
         <header>
             <div class="logo">
-                <img src="{% static 'cadpet/images/logo.png' %}" alt="logo">
+                <img src="{% static 'infopet/images/logo.png' %}" alt="logo">
             </div>
         </header>
         <nav>
@@ -67,6 +67,17 @@
                         </div>
                         <div class="hist-saude">
                             <p><strong>Histórico de Saúde:</strong> {{ historico_saude }}</p>
+                        </div>
+                        <div class="botoes">
+                            <div class="botao-editar">
+                                <a href="{% url 'editar_pet' pet.id %}" class="btn-edit">Editar</a>
+                            </div>
+                            <div class="botao-remover">
+                                <form method="POST" action="{% url 'remover_pet' pet.id %}">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn-remover">Remover</button>
+                                </form>
+                            </div>
                         </div>
                     </form>
                     </div>
