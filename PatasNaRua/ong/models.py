@@ -4,32 +4,32 @@ from django.db import models
 
 class Pet (models.Model):
     SEXO_CHOICES = [
-        ('M', 'Macho'),
-        ('F', 'Fêmea'),
+        ('Macho', 'Macho'),
+        ('Fêmea', 'Fêmea'),
     ]
 
     CASTRADO_CHOICES = [
-        ('S', 'Sim'),
-        ('N', 'Não'),
+        ('Sim', 'Sim'),
+        ('Não', 'Não'),
     ]
 
     ESPECIE_CHOICES = [
-        ('G', 'Gato'),
-        ('C', 'Cachorro'),
+        ('Gato', 'Gato'),
+        ('Cachorro', 'Cachorro'),
     ]
 
     nome = models.CharField(max_length=100)
-    especie = models.CharField(max_length=1, choices=ESPECIE_CHOICES)
+    especie = models.CharField(max_length=9, choices=ESPECIE_CHOICES)
     porte = models.CharField(max_length=100)
     raca = models.CharField(max_length=50)
     peso = models.FloatField()
     idade = models.PositiveIntegerField()
-    sexo = models.CharField(max_length=1, choices=SEXO_CHOICES)
+    sexo = models.CharField(max_length=5, choices=SEXO_CHOICES)
     info = models.TextField(null=True, blank=True)
     foto = models.ImageField(upload_to="fotosPet/", null=True, blank=True)
-    status = models.CharField(max_length=100, default="disponivel")
+    status = models.CharField(max_length=100, default="Dísponivel")
     historico_saude = models.TextField(null=True, blank=True)
-    castrado = models.CharField(max_length=1, choices=CASTRADO_CHOICES)
+    castrado = models.CharField(max_length=3, choices=CASTRADO_CHOICES)
     adotantes_padrinhos = models.CharField(max_length=100, null=True, blank=True)
 
     def __str__(self):
