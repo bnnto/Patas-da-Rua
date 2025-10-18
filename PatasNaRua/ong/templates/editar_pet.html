@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Patas Na Rua</title>
+        <link rel="stylesheet" href="{% static 'detalhes_pet/css/style.css' %}">
+    </head>
+
+    <body>
+        <header>
+            <div class="logo">
+                <img src="{% static 'detalhes_pet/images/logo.png' %}" alt="logo">
+            </div>
+        </header>
+        <nav>
+            <ul class="menu">
+                <li><a href="{% url 'localpet_ong' %}">Rastrear</a></li>
+                <li><a href="{% url 'cadpet_page' %}">Cadastrar</a></li>
+                <li><a href="#">Histórico</a></li>
+                <li><a href="#">Solicitações</a></li>
+                <li><a href="#">Pets</a></li>
+            </ul>
+        </nav>
+        
+        <main>
+            <section class="botao-voltar">
+                <a hef="{% url 'detalhes_pet' pet.id %}">← Voltar</a>
+                <h2>Editar {{ pet.nome }}</h2>
+            </section>
+            <section>
+                <div class="quadrado">
+                    <div class="esquerda">
+                        <div class="foto">
+                            {% if pet.imagem %}
+                                <img src="{{ pet.imagem.url }}" alt="{{ pet.nome }}">
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="direita">
+                    <form method="POST" enctype="multipart/form-data" class="edit-form">
+                        <div class="inserir-dado">
+                            <label for="nome">Nome:</label>
+                            <input type="text" id="nome" name="nome" value="{{ pet.nome }}" required>
+                        </div>
+                        <div class="inserir-dado">
+                            <label for="porte">Porte:</label>
+                            <input type="text" id="porte" name="porte" value="{{ pet.porte }}" required>
+                        </div>
+                        <div class="inserir-dado">
+                            <label for="raca">Raça:</label>
+                            <input type="text" id="raca" name="raca" value="{{ pet.raca }}" required>
+                        </div>
+                        <div class="inserir-dado">
+                            <label for="peso">Peso:</label>
+                            <input type="text" id="peso" name="peso" value="{{ pet.peso }}" required>
+                        </div>
+                        <div class="inserir-dado">
+                            <label for="idade">Idade:</label>
+                            <input type="number" id="idade" name="idade" step="any" value="{{ pet.idade }}" required>
+                        </div>
+                        <p>Espécie:</p>
+                        <input type="radio" id="gato" name="especie" value="G" class="input-radio"
+                            {% if pet.especie == 'G' %}checked{% endif %}>
+                        <label for="gato">Gato</label>
+                        <input type="radio" id="cachorro" name="especie" value="C" class="input-radio"
+                            {% if pet.especie == 'C' %}checked{% endif %}>
+                        <label for="cachorro">Cachorro</label>
+                        <p>Sexo:</p>
+                        <input type="radio" id="masc" name="sexo" value="M" class="input-radio"
+                            {% if pet.sexo == 'M' %}checked{% endif %}>
+                        <label for="masc">Macho</label>
+                        <input type="radio" id="fem" name="sexo" value="F" class="input-radio"
+                            {% if pet.sexo == 'F' %}checked{% endif %}>>
+                        <label for="fem">Fêmea</label><br>
+                        <p>Castrado:</p>
+                        <input type="radio" id="sim" name="castrado" value="Sim" class="input-radio"
+                            {% if pet.castrado == 'Sim' %}checked{% endif %}>>>
+                        <label for="sim">Sim</label>
+                        <input type="radio" id="nao" name="castrado" value="Não" class="input-radio"
+                            {% if pet.castrado == 'Não' %}checked{% endif %}>>>
+                        <label for="nao">Não</label>
+                        <div class="inserir-dado">
+                            <label for="info">Sobre o pet:</label>
+                            <textarea id="info" name="info">{{ pet.info}}</textarea>
+                        </div>
+                        <div class="inserir-dado">
+                            <label for="historico_saude">Histórico de Saúde:</label>
+                            <textarea id="historico_saude" name="historico_saude"required>{{ pet.historico_saude }}</textarea>
+                        </div>
+                        <div class="inserir-dado">
+                            <label for="status">Status:</label>
+                            <input type="text" id="status" name="status" value="{{ pet.status }}" required>
+                        </div>
+                        <div class="inserir-dado">
+                            <label for="adotantes_padrinhos">Adotantes/Padrinhos:</label>
+                            <input type="text" id="adotantes_padrinhos" name="adotantes_padrinhos" value="{{ pet.adotantes_padrinhos }}" required>
+                        </div>
+                        <div class="botoes">
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>© 2025 Patas Na Rua</p>
+        </footer>
+        <script src="{% static 'detalhes_pet/js/infopetong.js' %}"></script>
+    </body>
+</html> 

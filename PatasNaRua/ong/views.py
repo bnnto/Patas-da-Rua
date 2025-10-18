@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .models import Pet
@@ -25,6 +25,7 @@ def cadpet_view(request):
     info = request.data.get("info")
     foto = request.FILES.get("foto")
     historico_saude = request.data.get("historico_saude")
+    castrado = request.data.get("castrado")
 
     try:
         peso_str = request.data.get("peso")
@@ -42,11 +43,12 @@ def cadpet_view(request):
             status=status.HTTP_400_BAD_REQUEST
     )
 
-    if not nome or not especie or not porte or not raca or not sexo or not foto or peso is None or idade is None:
+    if not all([nome, especie, porte, raca, sexo, castrado, foto]) or peso is None or idade is None:
         return Response(
-            {"erro": "Faltam campos obrigatorios: Nome, Raca, Peso, Idade, Sexo e Foto."},
+            {"erro": "Preencha todos os campos obrigatórios: Nome, Espécie, Porte, Raça, Peso, Idade, Sexo, Castrado e Foto."},
             status=status.HTTP_400_BAD_REQUEST
         )
+
 
     pet = Pet.objects.create(
         nome=nome,
@@ -58,7 +60,8 @@ def cadpet_view(request):
         sexo=sexo,
         info=info,
         foto=foto,
-        historico_saude = historico_saude
+        historico_saude = historico_saude,
+        castrado=castrado
     )
 
     return Response({
@@ -73,8 +76,30 @@ def cadpet_view(request):
             "peso": pet.peso,
             "idade": pet.idade,
             "sexo": pet.sexo,
-            "obs": pet.info,
+            "info": pet.info,
             "historico_saude": pet.historico_saude,
             "foto": pet.foto.url if pet.foto else None
         }
     })
+
+def editar_pet(request, pet_id):
+    pet = get_object_or_404(Pet, id=pet_id)
+
+    if request.method == "POST":
+        pet.nome = request.POST.get('nome')
+        pet.especie = request.POST.get('especie')
+        pet.porte = request.POST.get('porte')
+        pet.raca = request.POST.get('raca')
+        pet.peso = request.POST.get('peso')
+        pet.idade = request.POST.get('idade')
+        pet.sexo = request.POST.get('sexo')
+        pet.info = request.POST.get('info')
+        pet.historico_saude = request.POST.get('historico_saude')
+        
+        if 'foto' in request.FILES:
+            pet.foto = request.FILES['foto']
+
+        pet.save()
+        return redirect('detalhes_pet', pet_id=pet.id)
+
+    return render(request, 'editar_pet.html', {'pet': pet})

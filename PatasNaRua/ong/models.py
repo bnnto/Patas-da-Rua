@@ -9,8 +9,8 @@ class Pet (models.Model):
     ]
 
     CASTRADO_CHOICES = [
-        ('True', 'Sim'),
-        ('False', 'Não'),
+        ('S', 'Sim'),
+        ('N', 'Não'),
     ]
 
     ESPECIE_CHOICES = [
@@ -29,7 +29,7 @@ class Pet (models.Model):
     foto = models.ImageField(upload_to="fotosPet/", null=True, blank=True)
     status = models.CharField(max_length=100, default="disponivel")
     historico_saude = models.TextField(null=True, blank=True)
-    castrado = models.BooleanField(choices=CASTRADO_CHOICES)
+    castrado = models.CharField(max_length=1, choices=CASTRADO_CHOICES)
     adotantes_padrinhos = models.CharField(max_length=100, null=True, blank=True)
 
     def __str__(self):

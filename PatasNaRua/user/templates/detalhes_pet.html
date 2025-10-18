@@ -5,13 +5,13 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Patas Na Rua</title>
-        <link rel="stylesheet" href="{% static 'infopet/css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'detalhes_pet/css/style.css' %}">
     </head>
 
     <body>
         <header>
             <div class="logo">
-                <img src="{% static 'infopet/images/logo.png' %}" alt="logo">
+                <img src="{% static 'detalhes_pet/images/logo.png' %}" alt="logo">
             </div>
         </header>
         <nav>
@@ -69,7 +69,6 @@
                             <p><strong>Histórico de Saúde:</strong> {{ historico_saude }}</p>
                         </div>
                         <div class="botoes">
-                            <a href="{% url 'editar_pet' pet.id %}" class="btn-edit">Editar</a>
                         </div>
                     </form>
                     </div>
@@ -79,6 +78,6 @@
         <footer>
             <p>© 2025 Patas Na Rua</p>
         </footer>
-        <script src="{% static 'infopet/js/infopet_ong.js' %}"></script>
+        <script src="{% static 'detalhes_pet/js/infopetong.js' %}"></script>
     </body>
 </html> 
