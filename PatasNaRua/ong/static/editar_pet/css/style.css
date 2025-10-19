@@ -1,0 +1,219 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #00CFD4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 120px;
+}
+
+.logo img{
+    width: 300px;
+    margin: 40px;
+    height: auto;
+}
+img {
+    width: 30px;
+}
+
+nav {
+    background-color: #00CFD4;
+    padding-left: 40px;
+    padding-bottom: 10px;
+}
+
+.menu {
+    display: flex;
+    justify-content: left;
+    gap: 50px;
+    list-style: none;
+}
+
+.menu li a {
+    color: #9269F3;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    margin: 0;
+}
+
+.quadrado {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #9269F3;
+    color: white;
+    width: 1480px;
+    height: 1200px;
+    padding: 10px 50px 50px 50px;
+    border-radius: 20px;
+    margin: 20px;
+}
+
+.titulo {
+    display: flex;
+    width: 100%;
+    height: 100px;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+    margin-top: 10px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.conteudo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 1100px;
+}    
+
+.esquerda {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+}
+
+.direita {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+}
+
+.inserir-dado {
+    position: relative;
+    margin-bottom: 30px;
+    width: 650px;
+}
+
+.inserir-dado input,
+.inserir-dado textarea {
+    width: 650px;
+    padding: 10px 22px;
+    background-color: white;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    font-size: 16px;
+    color: black;
+    transition: all 0.3s ease;
+}
+
+.inserir-dado textarea {
+    height: 110px;
+    resize: none;
+}
+
+.input-radio {
+    margin-bottom: 25px;
+}
+
+label[for="masc"] {
+    margin-right: 20px;
+}
+
+label[for="sim"] {
+    margin-right: 20px;
+}
+
+label[for="gato"] {
+    margin-right: 20px;
+}
+
+.visualizador {
+    width: 500px;
+    height: 500px;
+    margin: 40px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+#fotoInput {
+    display: none;
+}
+
+.foto {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    border: 2px dashed;
+    transition: color 200ms ease-in-out;
+}
+
+.foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.foto:hover {
+  color: #cac1c1;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.botoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.botao-concluir button,
+.botao-cancelar button {
+    width: 250px;
+    padding: 15px;
+    background-color: #5a128a;
+    border: none;
+    outline: none;
+    border-radius: 35px;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.botao-concluir button:hover,
+.botao-cancelar button:hover {
+  background-color: #3a0e58;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+footer {
+    display: flex;
+    background-color: #00CFD4;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+}
+
+p {
+    margin-bottom: 10px;
+}

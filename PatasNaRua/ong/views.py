@@ -7,8 +7,9 @@ from rest_framework import status
 def cadpet_page(request):
     return render(request, "cadpet.html")
 
-def infopet_ong(request):
-    return render(request, "infopet_ong.html")
+def infopet_ong(request, pet_id):
+    pet = get_object_or_404(Pet, id=pet_id)
+    return render(request, "infopet_ong.html", {"pet": pet})
 
 def localpet_ong(request):
     return render(request, "localpet.html")
@@ -77,6 +78,7 @@ def cadpet_view(request):
             "idade": pet.idade,
             "sexo": pet.sexo,
             "info": pet.info,
+            "castrado": pet.castrado,
             "historico_saude": pet.historico_saude,
             "foto": pet.foto.url if pet.foto else None
         }

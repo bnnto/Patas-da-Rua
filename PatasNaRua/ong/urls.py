@@ -6,6 +6,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('cadastro-pet/', views.cadpet_page, name='cadpet_page'),
     path('api/cadpet/', views.cadpet_view, name='cadpet_api'),
+    path('pet/<int:pet_id>/infopet-ong/', views.infopet_ong, name='infopet_ong'),
     path('infopet-ong/', views.infopet_ong, name='infopet_ong'),
     path('localpet-ong/', views.localpet_ong, name='localpet_ong'),
     path('pet/<int:pet_id>/editar/', views.editar_pet, name='editar_pet'),

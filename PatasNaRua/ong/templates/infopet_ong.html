@@ -29,49 +29,53 @@
                 <div class="quadrado">
                     <div class="esquerda">
                         <div class="foto">
-                            {% if pet.imagem %}
-                                <img src="{{ pet.imagem.url }}" alt="{{ pet.nome }}">
+                            {% if pet.foto %}
+                                <img src="{{ pet.foto.url }}" alt="{{ pet.nome }}">
                             {% endif %}
                         </div>
                         <div class="status-pet">
-                            <p><strong>Status do pet:</strong> {{ status.pet }}</p>
+                            <p><strong>Status do pet:</strong> {{ pet.status }}</p>
                         </div>
                     </div>
                     <div class="direita">
                         <div class="nome-pet">
-                            <p><strong>{{ nome.pet }}</strong></p>
+                            <p><strong>{{ pet.nome }}</strong></p>
                         </div>
                         <div class="informacoes">
-                            <p><strong>Espécie:</strong> {{ especie.pet }}</p>
+                            <p><strong>Espécie:</strong> {{ pet.especie }}</p>
                         </div>
                         <div class="informacoes">
-                            <p><strong>Porte:</strong> {{ porte.pet }}</p>
+                            <p><strong>Porte:</strong> {{ pet.porte }}</p>
                         </div>
                         <div class="informacoes">
-                            <p><strong>Raça:</strong> {{ raca.pet }}</p>
+                            <p><strong>Raça:</strong> {{ pet.raca }}</p>
                         </div>
                         <div class="informacoes">
-                            <p><strong>Sexo:</strong> {{ Sexo.pet }}</p>
+                            <p><strong>Sexo:</strong> {{ pet.sexo }}</p>
                         </div>
                         <div class="informacoes">
-                            <p><strong>Idade:</strong> {{ idade.pet }}</p>
+                            <p><strong>Idade:</strong> {{ pet.idade }} anos</p>
                         </div>
                         <div class="informacoes">
-                            <p><strong>Peso:</strong> {{ peso.pet }}</p>
+                            <p><strong>Peso:</strong> {{ pet.peso }} Kg</p>
                         </div>
                         <div class="informacoes">
-                            <p><strong>Castrado:</strong> {{ cadastro.pet }}</p>
+                            <p><strong>Castrado:</strong> {{ pet.castrado }}</p>
                         </div>
                         <div class="info">
-                            <p><strong>Sobre o pet:</strong> {{ info.pet }}</p>
+                            <p><strong>Sobre o pet:</strong> {{ pet.info }}</p>
                         </div>
                         <div class="hist-saude">
-                            <p><strong>Histórico de Saúde:</strong> {{ historico_saude }}</p>
+                            <p><strong>Histórico de Saúde:</strong> {{ pet.historico_saude }}</p>
                         </div>
                         <div class="botoes">
-                            <a href="{% url 'editar_pet' pet.id %}" class="btn-edit">Editar</a>
+                            <a href="{% url 'editar_pet' pet.id %}" class="botao-editar">Editar</a>
+                            <form method="POST" action="{% url 'remover_pet' pet.id %}" style="display:inline;">
+                                {% csrf_token %}
+                                <button type="submit" class="botao-remover" data-pet-nome="{{ pet.nome }}">Remover</button>
+                            </form>
+                            <a href="{% url 'remover_pet' pet.id %}" class="botao-remover" data-pet-nome="{{ pet.nome }}">Remover</a>
                         </div>
-                    </form>
                     </div>
                 </div>
             </section>

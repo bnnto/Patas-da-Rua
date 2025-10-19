@@ -27,7 +27,7 @@ class Pet (models.Model):
     sexo = models.CharField(max_length=5, choices=SEXO_CHOICES)
     info = models.TextField(null=True, blank=True)
     foto = models.ImageField(upload_to="fotosPet/", null=True, blank=True)
-    status = models.CharField(max_length=100, default="Dísponivel")
+    status = models.CharField(max_length=100, default="Disponível")
     historico_saude = models.TextField(null=True, blank=True)
     castrado = models.CharField(max_length=3, choices=CASTRADO_CHOICES)
     adotantes_padrinhos = models.CharField(max_length=100, null=True, blank=True)
