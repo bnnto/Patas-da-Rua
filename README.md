@@ -42,9 +42,13 @@ Proteger e melhorar a qualidade de vida de animais de rua, oferecendo uma soluç
 
 Link para visualizar o trello: [Trello](https://trello.com/b/Zv0x8ntW/patas-na-rua)
 
-### Quadro
+### Quadro Atualizado
 
-![quadro](./assets/QuadroTrello.png)
+![quadro](./assets/QuadroAtualizado.png)
+
+### Quadro Antigo
+
+[Quadro Antigo](https://drive.google.com/drive/folders/1Jqr3Yn5fIHLeY4F4NfSvS09Uc6fM1N4T?usp=drive_link)
 
 ### Backlog
 
@@ -69,9 +73,12 @@ Link para visualizar o figma do projeto: [Patas na Rua](https://www.figma.com/de
 ![telaong](./assets/telaONGATV.png)
 ![telauser](./assets/telauser.png)
 
-# Issue/Bug Tracker
+# Issue/Bug Tracker Atualizada
 
-![issue-bug](./assets/IssueBug-Tracker.png)
+![issue-att](./assets/IssueAtualizada.png)
+
+## Issues Fechadas
+![issue-closed](./assets/IssuesFechadas.png)
 
 # Storyboards
 
@@ -118,4 +125,5 @@ Link para visualizar o figma do projeto: [Patas na Rua](https://www.figma.com/de
 # Relatório Pair Programming
 
 Nosso Pair Programming nos possibilitou aprender ainda mais um com o outro, enquanto um programava o outro observava, ou fazia outras coisas do projeto. Os pontos fortes são a parceria e a troca de ideias, o que faz a programação ser ainda mais fácil e divertida. Já os pontos fracos, na verdade, o nosso único ponto fraco, é a divergência de ideias, mas isso pode ser resolvido facilmente. Resumindo, pair programming é uma otíma prática, para colegas, amigos, namorados, ou até conhecidos, pois de toda forma, ambos aprenderão ainda mais juntos. 
-Lorenna e Bento.
+
+-Lorenna e Bento.
