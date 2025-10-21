@@ -58,7 +58,8 @@ Link para visualizar o figma do projeto: [Patas na Rua](https://www.figma.com/de
 
 # Screencast
 
-Link para demonstração das funcionalidades do projeto: [Screencast](https://drive.google.com/drive/folders/1X9eKB9kNdjSjooO-u2W0E6FK_3Dyimkk?usp=drive_link)
+- Link para demonstração das funcionalidades do projeto: [Screencast](https://drive.google.com/drive/folders/1X9eKB9kNdjSjooO-u2W0E6FK_3Dyimkk?usp=drive_link)
+- Link para demonstração das 3 histórias prontas: [Screencast 3 histórias](https://drive.google.com/drive/folders/164AVSKDCRmPMgvYiycS_o05gstkSsWAT?usp=drive_link)
 
 # Diagramas de Atividades
 
@@ -113,3 +114,8 @@ Link para demonstração das funcionalidades do projeto: [Screencast](https://dr
 8. Sistema armazena e criptografa dados → solicitação de cadastro é enviada para análise.
 9. Solicitação aprovada → ONG é direcionada para a tela inicial do site.
 10. Solicitação reprovada → sistema envia e-mail de reprovação para o responsável da ONG.
+
+# Relatório Pair Programming
+
+Nosso Pair Programming nos possibilitou aprender ainda mais um com o outro, enquanto um programava o outro observava, ou fazia outras coisas do projeto. Os pontos fortes são a parceria e a troca de ideias, o que faz a programação ser ainda mais fácil e divertida. Já os pontos fracos, na verdade, o nosso único ponto fraco, é a divergência de ideias, mas isso pode ser resolvido facilmente. Resumindo, pair programming é uma otíma prática, para colegas, amigos, namorados, ou até conhecidos, pois de toda forma, ambos aprenderão ainda mais juntos. 
+Lorenna e Bento.
