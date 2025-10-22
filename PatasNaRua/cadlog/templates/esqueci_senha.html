@@ -2,36 +2,75 @@
 
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Recuperar Senha</title>
-    <link rel="stylesheet" href="{% static 'esqueci_senha/css/style.css' %}">
-</head>
-<body>
+    <link rel="stylesheet" href="{% static 'esqueci_senha/css/style.css' %}" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+  </head>
+  <body>
     <div class="quadrado">
-        <div id="tela-esqueci-senha">
-            <h2>Recuperar Senha</h2>
-            <p>Digite seu e-mail para receber um código de verificação</p>
-            
-            {% if messages %}
-                {% for message in messages %}
-                    <p class="{{ message.tags }}">{{ message }}</p>
-                {% endfor %}
-            {% endif %}
-            
-            <form method="POST">
-                {% csrf_token %}
-                <div class="inserir-dado">
-                    <input type="email" name="email" placeholder="E-mail" required>
-                </div>
-                <button type="submit" class="btn-esqueci">Enviar Código</button>
+      <div id="tela-esqueci-senha">
+        <h2>Recuperar Senha</h2>
+        <p>Digite seu e-mail para receber um código de verificação</p>
 
-                <div class="extras_e">
-                    <p><a href="{% url 'login' %}">⮪ Voltar para o login</a></p>
-                </div>
-            </form>
-        </div>
+        <form method="POST">
+          {% csrf_token %}
+          <div class="inserir-dado">
+            <input type="email" name="email" placeholder="E-mail" required />
+          </div>
+          <button type="submit" class="btn-esqueci">Enviar Código</button>
+
+          <div class="extras_e">
+            <p><a href="{% url 'login' %}">⮪ Voltar para o login</a></p>
+          </div>
+        </form>
+      </div>
     </div>
-</body>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+    <script>
+        function showToast(message, type = 'info') {
+            const backgrounds = {
+                success: '#1dff46ff',
+                error: '#d63030ff',
+                warning: '#d1ed36ff',
+                info: '#00bbffff'
+            };
+
+            Toastify({
+            text: message,
+            duration: 5000,
+            close: true,
+            gravity: "top",
+            position: "center",
+            stopOnFocus: true,
+            style: {
+                background: backgrounds[type] || backgrounds.info,
+                borderRadius: "10px",
+                padding: "15px 25px",
+                color: "white",
+                border: "none",
+                outline: "none",
+                fontWeight: "600",
+                boxShadow: "0 5px 15px rgba(0, 0, 0, 0.1);"
+            },
+
+            onShow: function(){}
+            }).showToast();
+        }
+      {% if messages %}
+          {% for message in messages %}
+            showToast("{{ message }}", "{% if message.tags %}{{ message.tags }}{% else %}info{% endif %}");
+          {% endfor %}
+      {% endif %}
+    </script>
+  </body>
 </html>

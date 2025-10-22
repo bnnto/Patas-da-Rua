@@ -1,67 +1,108 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Redefinir Senha</title>
-    <link rel="stylesheet" href="{% static 'redefinir_senha/css/style.css' %}">
-</head>
+    <link
+      rel="stylesheet"
+      href="{% static 'redefinir_senha/css/style.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+  </head>
 
-<body>
+  <body>
     <div class="quadrado">
-        <div id="tela-redefinir-senha">
-            <h2>Redefinir Senha</h2>
-            <p>Defina sua nova senha para: <strong>{{ email }}</strong></p>
-        
-            {% if messages %}
-                {% for message in messages %}
-                    <p class="{{ message.tags }}">{{ message }}</p>
-                {% endfor %}
-            {% endif %}
+      <div id="tela-redefinir-senha">
+        <h2>Redefinir Senha</h2>
+        <p>Defina sua nova senha para: <strong>{{ email }}</strong></p>
 
-            <form method="POST" id="formRedefinirSenha">
-                {% csrf_token %}
+        <form method="POST" id="formRedefinirSenha">
+          {% csrf_token %}
 
-                <div class="inserir-dado">
-                    <input
-                        type="password"
-                        name="nova_senha"
-                        id="nova_senha"
-                        placeholder="Nova senha"
-                        minlength="8"
-                        required
-                    >
-                </div>
+          <div class="inserir-dado">
+            <input
+              type="password"
+              name="nova_senha"
+              id="nova_senha"
+              placeholder="Nova senha"
+              minlength="8"
+              required
+            />
+          </div>
 
-                <div class="inserir-dado">
-                    <input
-                        type="password"
-                        name="confirma_senha"
-                        id="confirma_senha"
-                        placeholder="Confirme a nova senha"
-                        minlength="8"
-                        required
-                    >
-                </div>
+          <div class="inserir-dado">
+            <input
+              type="password"
+              name="confirma_senha"
+              id="confirma_senha"
+              placeholder="Confirme a nova senha"
+              minlength="8"
+              required
+            />
+          </div>
 
-                <div class="requisitos-senha">
-                    <strong>Requisitos da senha:</strong>
-                    <ul>
-                        <li>Mínimo de 8 caracteres</li>
-                        <li>As senhas devem ser idênticas</li>
-                    </ul>
-                </div>
+          <div class="requisitos-senha">
+            <strong>Requisitos da senha:</strong>
+            <ul>
+              <li>Mínimo de 8 caracteres</li>
+              <li>As senhas devem ser idênticas</li>
+            </ul>
+          </div>
 
-                <button type="submit" class="btn">Redefinir senha</button>
+          <button type="submit" class="btn">Redefinir senha</button>
 
-                <div class="extras_e">
-                    <p><a href="{% url 'login' %}">Voltar para o login</a></p>
-                </div>
-            </form>
-        </div>
+          <div class="extras_e">
+            <p><a href="{% url 'login' %}">⮪ Voltar para o login</a></p>
+          </div>
+        </form>
+      </div>
     </div>
     <script src="{% static 'redefinir_senha/js/script.js' %}"></script>
-</body>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+    <script>
+      function showToast(message, type = 'info') {
+        const backgrounds = {
+            success: '#1dff46ff',
+            error: '#d63030ff',
+            warning: '#d1ed36ff',
+            info: '#00bbffff'
+        };
+
+        Toastify({
+          text: message,
+          duration: 5000,
+          close: true,
+          gravity: "top",
+          position: "center",
+          stopOnFocus: true,
+          style: {
+            background: backgrounds[type] || backgrounds.info,
+            borderRadius: "10px",
+            padding: "15px 25px",
+            color: "white",
+            border: "none",
+            outline: "none",
+            fontWeight: "600",
+            boxShadow: "0 5px 15px rgba(0, 0, 0, 0.1);"
+          },
+
+          onShow: function(){}
+        }).showToast();
+      }
+      {% if messages %}
+        {% for message in messages %}
+          showToast("{{ message }}", "{% if message.tags %}{{ message.tags }}{% else %}info{% endif %}");
+        {% endfor %}
+      {% endif %}
+    </script>
+  </body>
 </html>
- 

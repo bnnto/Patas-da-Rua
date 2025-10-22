@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cadastro</title>
     <link rel="stylesheet" href="{% static 'cadastro_ong/css/style.css' %}" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
   </head>
 
   <body>
@@ -60,12 +61,44 @@
         </div>
         
         <button type="submit">Cadastrar ONG</button>
-        
-        {% if messages %}
-            {% for message in messages %}
-                <p class="{{ message.tags }}">{{ message }}</p>
-            {% endfor %}
-        {% endif %}
+    
     </form>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script>
+    function showToast(message, type = 'info') {
+        const backgrounds = {
+            success: '#1dff46ff',
+            error: '#d63030ff',
+            warning: '#d1ed36ff',
+            info: '#00bbffff'
+        };
+        
+        Toastify({
+        text: message,
+        duration: 5000,
+        close: true,
+        gravity: "top",
+        position: "center",
+        stopOnFocus: true,
+        style: {
+            background: backgrounds[type] || backgrounds.info,
+            borderRadius: "10px",
+            padding: "15px 25px",
+            color: "white",
+            border: "none",
+            outline: "none",
+            fontWeight: "600",
+            boxShadow: "0 5px 15px rgba(0, 0, 0, 0.1);"
+        },
+
+        onShow: function(){}
+        }).showToast();
+    }
+    {% if messages %}
+        {% for message in messages %}
+        showToast("{{ message }}", "{% if message.tags %}{{ message.tags }}{% else %}info{% endif %}");
+        {% endfor %}
+    {% endif %}
+  </script>
   </body>
 </html>

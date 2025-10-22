@@ -1,46 +1,91 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Verificar Código</title>
-    <link rel="stylesheet" href="{% static 'verificar_codigo/css/style.css' %}">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="{% static 'verificar_codigo/css/style.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+  </head>
+  <body>
     <div class="quadrado">
-        <div id="tela-verificar-codigo">
-            <h2>Verificar Código</h2>
-            <p>Digite o código de 6 dígitos enviado para: <strong>{{ email }}</strong></p>
-            
-            {% if messages %}
-                {% for message in messages %}
-                    <p class="{{ message.tags }}">{{ message }}</p>
-                {% endfor %}
-            {% endif %}
-            
-            <form method="POST">
-                {% csrf_token %}
-                <div class="inserir-dado">
-                    <input 
-                        type="text" 
-                        name="codigo" 
-                        placeholder="000000" 
-                        maxlength="6"
-                        pattern="\d{6}"
-                        required
-                        autofocus
-                    >
-                </div>
-                
-                <button type="submit" class="btn">Verificar Código</button>
+      <div id="tela-verificar-codigo">
+        <h2>Verificar Código</h2>
+        <p>
+          Digite o código de 6 dígitos enviado para:
+          <strong>{{ email }}</strong>
+        </p>
 
-                <div class="extras_e">
-                    <p><a href="{% url 'esqueci_senha' %}">Solicitar novo código</a></p>
-                    <p><a href="{% url 'login' %}">⮪ Voltar para o login</a></p>
-                </div>
-            </form>
-        </div>
+        <form method="POST">
+          {% csrf_token %}
+          <div class="inserir-dado">
+            <input
+              type="text"
+              name="codigo"
+              placeholder="000000"
+              maxlength="6"
+              pattern="\d{6}"
+              required
+              autofocus
+            />
+          </div>
+
+          <button type="submit" class="btn">Verificar Código</button>
+
+          <div class="extras_e">
+            <p><a href="{% url 'esqueci_senha' %}">Solicitar novo código</a></p>
+            <p><a href="{% url 'login' %}">⮪ Voltar para o login</a></p>
+          </div>
+        </form>
+      </div>
     </div>
-</body>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+    <script>
+      function showToast(message, type = 'info') {
+        const backgrounds = {
+            success: '#1dff46ff',
+            error: '#d63030ff',
+            warning: '#d1ed36ff',
+            info: '#00bbffff'
+        };
+
+        Toastify({
+          text: message,
+          duration: 5000,
+          close: true,
+          gravity: "top",
+          position: "center",
+          stopOnFocus: true,
+          style: {
+            background: backgrounds[type] || backgrounds.info,
+            borderRadius: "10px",
+            padding: "15px 25px",
+            color: "white",
+            border: "none",
+            outline: "none",
+            fontWeight: "600",
+            boxShadow: "0 5px 15px rgba(0, 0, 0, 0.1);"
+          },
+
+          onShow: function(){}
+        }).showToast();
+      }
+      {% if messages %}
+        {% for message in messages %}
+          showToast("{{ message }}", "{% if message.tags %}{{ message.tags }}{% else %}info{% endif %}");
+        {% endfor %}
+      {% endif %}
+    </script>
+  </body>
 </html>

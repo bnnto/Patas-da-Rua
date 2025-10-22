@@ -1,7 +1,8 @@
 venv/
 .env
 __pycache__/
-*_pyc
+*.py[cod]
+*$py.class
 .vscode/
 .idea/
 db.sqlite3
