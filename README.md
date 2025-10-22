@@ -1,4 +1,4 @@
-# Patas na Rua
+# Patas da Rua
 
 ![Status](https://img.shields.io/badge/status-EmDesenvolvimento-yellow)
 
@@ -58,7 +58,7 @@ Link para visualizar o trello: [Trello](https://trello.com/b/Zv0x8ntW/patas-na-r
 
 # Figma
 
-Link para visualizar o figma do projeto: [Patas na Rua](https://www.figma.com/design/v7vz9nH8jlqldcBGe8qKIp/PatasNaRuaVisu?node-id=0-1&t=kICA12GHyYwpdJoW-1)
+Link para visualizar o figma do projeto: [Patas da Rua](https://www.figma.com/design/v7vz9nH8jlqldcBGe8qKIp/PatasNaRuaVisu?node-id=0-1&t=kICA12GHyYwpdJoW-1)
 
 # Screencast
 
